@@ -1,0 +1,26 @@
+<div class="login-background"></div>
+<div class="login-box">
+
+    <div class="left-login-box"></div>
+    <div class="right-login-box">
+
+        <h1>WELCOME BACK.</h1>
+
+
+        <form>
+        
+            <label for="email">EMAIL</label>
+            <input class="bordered" type="text" [(ngModel)]="userService.username" name="email" >
+            <label for="password">PASSWORD</label>
+            <input class="bordered" type="password" [(ngModel)]="userService.password" name="password">
+            <a class="forgot-password" href="#">FORGOT YOUR PASSWORD?</a>
+
+            <input class="submit" type="submit" value="Login" (click)="authService.login()">
+
+            <a class="sign-up" href="#">Need an account? <span>Register</span></a>
+        
+        </form>
+            <a class="submit" routerLink="/users" (click)="authService.login()" class="btn btn-primary">Login</a>
+    </div>
+
+</div>
