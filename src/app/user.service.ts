@@ -16,6 +16,9 @@ export class UserService {
     username:string;
     password:string;
 
+    // Token provided by server after login credentials confirmed.
+    accessToken:string;
+
     /**
      * Gets activated as constructor in the 
      * - UserComponent.
@@ -30,15 +33,14 @@ export class UserService {
             grant_type: "password",
             client_id: 2,
             client_secret: "amKXFmNubIbFVlR2JugKHkb5RwFgTQaKD70qjlmj",
-            username: this.username,//Johnny@gmail.com
-            password: this.password,//test
+            username: this.username,
+            password: this.password,
             scope: ""
         }
 
         /**
          * Sending login credentials to the backend for validation
          * - this will return a token back.
-         * - This gets initiated in the construction of the UserCompontent.
          */
         return this.http.post(this.oauthUrl, JSON.stringify(postData), {
             headers: headers
@@ -48,14 +50,15 @@ export class UserService {
     }
 
     /**
-     * With the auth token from the backend passed, now able to retrieve data.
-     * @param accessToken is passed from UserComponent getUsers method.
+     * Used to populate users when the UsersComponent 
+     * is constructed.
+     * Access Token must be valid and fetched.
      */
-    getUsers(accessToken: string): Observable<User[]> {
+    getUsers(): Observable<User[]> {
 
         var headers = new Headers({
             "Accept": "application/json",
-            "Authorization": "Bearer " + accessToken,
+            "Authorization": "Bearer " + this.accessToken,
         });
 
         return this.http.get(this.usersUrl, {

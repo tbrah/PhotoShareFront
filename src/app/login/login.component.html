@@ -15,12 +15,12 @@
             <input class="bordered" type="password" [(ngModel)]="userService.password" name="password">
             <a class="forgot-password" href="#">FORGOT YOUR PASSWORD?</a>
 
-            <input class="submit" type="submit" value="Login" (click)="authService.login()">
+            <input class="submit" type="submit" value="Login" (click)="validateUser()">
 
             <a class="sign-up" href="#">Need an account? <span>Register</span></a>
         
         </form>
-            <a class="submit" routerLink="/users" (click)="authService.login()" class="btn btn-primary">Login</a>
+
     </div>
 
 </div>
