@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
     validateUser(){
         this.userService.getAccessToken()
         .subscribe(data => {
-            this.userService.accessToken = data.access_token;
+            this.authService.accessToken = data.access_token;
             this.authService.login();
+            sessionStorage.setItem("token", this.authService.accessToken);
             this.router.navigate(['/users']);
         });
     }

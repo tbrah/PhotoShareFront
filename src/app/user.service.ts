@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
 import { User } from './user';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private authService:AuthService) { }
 
 
 	private oauthUrl = "http://photoshare.dev:8000/oauth/token";
@@ -15,9 +16,6 @@ export class UserService {
     //Credentials binded in the login form.
     username:string;
     password:string;
-
-    // Token provided by server after login credentials confirmed.
-    accessToken:string;
 
     /**
      * Gets activated as constructor in the 
@@ -58,7 +56,7 @@ export class UserService {
 
         var headers = new Headers({
             "Accept": "application/json",
-            "Authorization": "Bearer " + this.accessToken,
+            "Authorization": "Bearer " + this.authService.accessToken,
         });
 
         return this.http.get(this.usersUrl, {

@@ -7,7 +7,19 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class AuthService {
 
-  constructor() { }
+  constructor() {
+    /**
+     * TODO: Should change this to check if the sessionStorage
+     * has a Item of "Token" instead of checking the length.
+     */
+    if(sessionStorage.length > 0){
+      this.accessToken = sessionStorage.getItem("token");
+      this.login();
+    }
+  }
+
+  // Token provided by server after login credentials confirmed.
+  accessToken:string;
 
   isLoggedIn = false;
 
