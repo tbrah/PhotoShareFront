@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Rx';
+import { Http, Headers, Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,15 +15,15 @@ export class RegisterComponent implements OnInit {
   username:string = "";
   email:string = "";
   password:string = "";
-  cpassword:string = "";
+  password_confirmation:string = "";
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http:Http, private router:Router) {
     
     this.rForm = fb.group({
-      'username': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10)])],
-      'email': [null, Validators.compose([Validators.required, Validators.email])],
-      'password': [null, Validators.compose([Validators.required, Validators.minLength(4)])],
-      'cpassword': [null, Validators.required],
+      'username': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
+      'email': [null, Validators.compose([Validators.required, Validators.email, Validators.maxLength(255)])],
+      'password': [null, Validators.compose([Validators.required, Validators.minLength(6)])],
+      'password_confirmation': [null, Validators.required],
     });
 
   }
@@ -28,14 +31,51 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  public loading = false;
+  public errorMessage:string;
+
+  /**
+   * @param post = data from the form 
+   * -username
+   * -email
+   * -password
+   * -password_confirmation
+   */
   addUser(post){
-    if(post.password == post.cpassword){
-      console.log("Passwords matched!");
-      this.username = post.username;
-      this.email = post.email;
-      this.password = post.password;
+    this.loading = true;
+    if(post.password == post.password_confirmation){
+
+      var headers = new Headers({
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      });
+
+      let newUser = 
+      { username: post.username, 
+        email: post.email,
+        password: post.password,
+        password_confirmation: post.password_confirmation
+    };
+      /**
+       * Posting the register information to the server.
+       */
+      this.http.post("http://photoshare.dev:8000/api/users/create", JSON.stringify(newUser),{
+        headers:headers
+        }).subscribe(data => this.router.navigate(['/login']),
+                      error => {
+                        //backend make it return errors to display here.
+                        console.log(error._body);
+                        this.loading = false;
+                      }
+        );
+
+        // Send the user back to the login page.
+        
+
     } else {
+      // Do some logic so it returns something in the dom.
       console.log("Passwords didn't match");
+      this.loading = false;
     }
 
   }

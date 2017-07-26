@@ -26,10 +26,10 @@
         </label>
         <input class="bordered" type="password" formControlName="password" name="password">
 
-        <label for="cpassword">REPEAT PASSWORD</label>
-        <input class="bordered" type="password" formControlName="cpassword" name="cpassword">
+        <label for="password_confirmation">REPEAT PASSWORD</label>
+        <input class="bordered" type="password" formControlName="password_confirmation" name="password_confirmation">
 
-        <input type="submit" class="submit" value="Sign Up" [disabled]="!rForm.valid">
+        <button class="submit" type="submit" [disabled]="!rForm.valid"><span [hidden]="loading">Sign Up</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loading"></i></button>
 
     </form>
 
