@@ -1,23 +1,27 @@
 <div class="login-background"></div>
-<div class="login-box">
+<div class="login-box" [ngClass]="{'login-box-extended': router.url =='/login/register'}">
 
     <div class="left-login-box"></div>
-    <div class="right-login-box">
+    <router-outlet>
+
+    </router-outlet>
+    <div class="right-login-box" *ngIf="router.url != '/login/register' ">
 
         <h1>WELCOME BACK.</h1>
 
+        <div class="form-control error" *ngIf="errorShow"><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
 
         <form>
         
             <label for="email">EMAIL</label>
-            <input class="bordered" type="text" [(ngModel)]="userService.username" name="email" >
+            <input class="bordered" type="text" [(ngModel)]="userService.username" name="email" required>
             <label for="password">PASSWORD</label>
-            <input class="bordered" type="password" [(ngModel)]="userService.password" name="password">
+            <input class="bordered form-group has-warning" type="password" [(ngModel)]="userService.password" name="password" required>
             <a class="forgot-password" href="#">FORGOT YOUR PASSWORD?</a>
 
-            <input class="submit" type="submit" value="Login" (click)="validateUser()">
+            <button class="submit" type="submit" (click)="validateUser()"><span *ngIf="!loggingIn">Login</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loggingIn"></i></button>
 
-            <a class="sign-up" href="#">Need an account? <span>Register</span></a>
+            <a class="sign-up" routerLink="register">Need an account? <span>Register</span></a>
         
         </form>
 

@@ -1,43 +1,5 @@
-.login-background{
-    position:fixed;
-    z-index:-1;
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    background-color:#34495e;
-    background-image:url("../../assets/img/login-background.jpg");
-    background-size:cover;
-    filter:contrast(130%) brightness(70%) blur(3px);
-    transform:scale(1.02);
-    overflow:hidden;
-    
-
-}
-        .login-box{
-        position:absolute;
-        display:flex;
-        flex-direction: row;
-        background-color:rgba(44, 49, 68, 0.91);
-        z-index:100;
-        top:0;
-        left:0;
-        bottom:0;
-        right:0;
-        margin:auto;
-        width:660px;
-        height:437px;
-        border-radius:3px;
-        overflow:hidden;
-
-        .left-login-box{
-            height:100%;
-            width:245px;
-            background-color:#fff;
-            opacity:0.18;
-        }
-
-        .right-login-box{
+        .regi{
+            position:relative;
             flex-grow:1;
             height:100%;
             padding-top:40px;
@@ -45,11 +7,24 @@
             padding-left:35px;
             padding-right:35px;
 
+            .back-link{
+                color:#fff;
+                position:absolute;
+                top:20px;
+                left:30px;
+                font-size:10px;
+                opacity:0.4;
+                transition:all 0.2s ease-in;
+                &:hover{
+                    opacity:0.8;
+                }
+            }
+
             h1{
                 font-size:20px;
                 font-weight:500;
                 color:#fff;
-                margin-top:0;
+                margin-top:40px;
                 text-align:center;
             }
 
@@ -58,7 +33,7 @@
                 display:block;
                 margin-left:auto;
                 margin-right:auto;
-                margin-top:53px;
+                margin-top:55px;
                 input:-webkit-autofill,
                 input:-webkit-autofill:hover,
                 input:-webkit-autofill:focus,
@@ -66,6 +41,14 @@
                     transition: background-color 5000s ease-in-out 0s;
                     transition-delay: 99999s;
                     -webkit-text-fill-color: white!important;
+                }
+                p{
+                    font-size:12px;
+                    color:#fff;
+                    padding-top:5px;
+                    padding-bottom:5px;
+                    margin-top:0;
+                    margin-bottom:0;
                 }
                 label{
                     font-weight:normal;
@@ -105,19 +88,25 @@
                     margin-top:15px;
                 }
                 .submit{
+                    position:absolute;
+                    bottom:35px;
                     width:350px;
-                    height:80px;
+                    height:50px;
                     color:#fff;
-                    font-size:20px;
-                    background-color:#2ca977;
+                    font-size:14px;
+                    background-color:#0275d8;
                     border:none;
                     border-radius:5px;
                     transition:all 0.2s ease-in;
                     outline:none;
                     text-align:center;
 
-                    &:hover{
-                        background-color:lighten(#2ca977, 8%);
+                    &:hover:enabled{
+                        background-color:lighten(#0275d8, 8%);
+                    }
+
+                    &:disabled{
+                        opacity: 0.5;
                     }
 
                     i{
@@ -133,7 +122,6 @@
                 }
             }
         }
-    }
     .error{
         position:absolute;
         width:350px;
@@ -158,6 +146,22 @@
         }
     }
 
-    .login-box-extended{
-        height:550px;
+        .error{
+        position:absolute;
+        top:119px;
+        width:350px;
+        background-color:#d9534f!important;
+        border:none;
+        color:#fff;
+        font-weight:400;
+        text-align:center;
+        animation:wobble 0.1s ease-in-out 2;
+
+        i{
+            margin-right:5px;
+        }
+    }
+    .span-error{
+        font-weight:700;
+        color:#d9534f;
     }

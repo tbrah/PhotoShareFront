@@ -18,8 +18,8 @@ export class UserService {
     password:string;
 
     /**
-     * Gets activated as constructor in the 
-     * - UserComponent.
+     * Is used in the process of validating the user.
+     * Used in method in the LoginComponent.
      */
     getAccessToken() {
         var headers = new Headers({
@@ -43,7 +43,7 @@ export class UserService {
         return this.http.post(this.oauthUrl, JSON.stringify(postData), {
             headers: headers
         })
-            .map((res: Response) => res.json())
+            .map( res => res.json())
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
