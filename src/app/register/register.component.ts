@@ -18,9 +18,11 @@ export class RegisterComponent implements OnInit {
   password_confirmation:string = "";
 
   constructor(private fb: FormBuilder, private http:Http, private router:Router) {
-    
+    /**
+     * Validation requirements for the form.
+     */
     this.rForm = fb.group({
-      'username': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
+      'username': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(30)])],
       'email': [null, Validators.compose([Validators.required, Validators.email, Validators.maxLength(255)])],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(6)])],
       'password_confirmation': [null, Validators.required],

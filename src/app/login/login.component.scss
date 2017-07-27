@@ -1,3 +1,5 @@
+@import "~vars.scss";
+
 .login-background{
     position:fixed;
     z-index:-1;
@@ -6,13 +8,23 @@
     height:100%;
     width:100%;
     background-color:#34495e;
-    background-image:url("../../assets/img/login-background.jpg");
+    background-image:url("/assets/img/login-background.jpg");
     background-size:cover;
     filter:contrast(130%) brightness(70%) blur(3px);
     transform:scale(1.02);
     overflow:hidden;
-    
-
+}
+.login-background-blur{
+    position:fixed;
+    z-index:0;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background:linear-gradient(141deg, #3A1C71 0%, #D76D77 51%, #FFAF7B 75%);
+    background-size:cover;
+    overflow:hidden;
+    opacity:0.6;
 }
         .login-box{
         position:absolute;
@@ -29,12 +41,25 @@
         height:437px;
         border-radius:3px;
         overflow:hidden;
+        box-shadow:$standard-shadow;
 
         .left-login-box{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
             height:100%;
             width:245px;
-            background-color:#fff;
-            opacity:0.18;
+            background-color:rgba(92, 92, 107, 0.33);
+
+            img{
+                display:block;
+                width:100px;
+                height:100px;
+                background-size:cover;
+                opacity:0.6;
+                margin-left:auto;
+                margin-right:auto;
+            }
         }
 
         .right-login-box{
@@ -70,6 +95,7 @@
                 label{
                     font-weight:normal;
                     font-size:12px;
+                    font-weight:300;
                     color:#fff;
                     margin-bottom:7px;
                 }
@@ -95,6 +121,7 @@
                     color:#CECECE;
                     display:block;
                     transition:all 0.2s ease-in;
+                    text-decoration: none;
 
                     &:hover{
                         opacity:0.8;
