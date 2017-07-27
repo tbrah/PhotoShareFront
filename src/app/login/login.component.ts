@@ -3,11 +3,13 @@ import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 import { RegisterService } from '../register.service';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { FadeInAnimationFast, FadeInAnimation } from '../_animations';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [FadeInAnimationFast, FadeInAnimation],
 })
 export class LoginComponent implements OnInit {
 

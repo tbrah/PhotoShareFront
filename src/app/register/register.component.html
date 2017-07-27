@@ -1,9 +1,9 @@
 <div class="right-login-box regi">
 
-    <a class="back-link" routerLink="/login" (click)="errorReset()"><i class="fa fa-angle-left"></i> Back to login</a>
+    <a class="back-link" routerLink="/login"><i class="fa fa-angle-left"></i> Back to login</a>
     <h1>REGISTER NEW ACCOUNT.</h1>
 
-    <div class="form-control error" *ngIf="registerService.errorMessage.length > 0">
+    <div class="form-control error" *ngIf="registerService.errorMessage.length > 0" [@FadeInAnimationFast]>
         <ul>
             <li *ngFor="let number of registerService.errorMessage | slice:0:1;">{{number}}</li>
         </ul>
@@ -12,21 +12,21 @@
     <form [formGroup]="rForm" (ngSubmit)="registerService.addUser(rForm.value)">
 
         <label for="username">USERNAME
-            <span class="span-error" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">
+            <span class="span-error" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched" [@FadeInAnimationFast]>
                 - Must be between 3 - 30 characters.
             </span>
         </label>
         <input class="bordered" type="text" formControlName="username" name="username">
 
         <label for="email">EMAIL
-            <span class="span-error" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched">
+            <span class="span-error" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" [@FadeInAnimationFast]>
                 - Must be a valid email address.
             </span>
         </label>
         <input class="bordered" name="email" type="text" formControlName="email" >
 
         <label for="password">PASSWORD
-            <span class="span-error" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">
+            <span class="span-error" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched" [@FadeInAnimationFast]>
                 - Must be at least 4 charcters long.
             </span>
         </label>

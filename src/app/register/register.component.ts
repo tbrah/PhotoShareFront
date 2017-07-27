@@ -4,11 +4,14 @@ import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
+import { FadeInAnimation, FadeInAnimationFast } from '../_animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  animations: [FadeInAnimation, FadeInAnimationFast],
+  host: { '[@FadeInAnimation]':''}
 })
 export class RegisterComponent implements OnInit {
 
@@ -28,6 +31,8 @@ export class RegisterComponent implements OnInit {
       'password': [null, Validators.compose([Validators.required, Validators.minLength(6)])],
       'password_confirmation': [null, Validators.required],
     });
+
+    this.registerService.errorReset();
 
   }
 

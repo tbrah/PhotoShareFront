@@ -1,6 +1,6 @@
 <div class="login-background"></div>
 <div class="login-background-blur"></div>
-<div class="login-box" [ngClass]="{'login-box-extended': router.url =='/login/register'}">
+<div class="login-box" [ngClass]="{'login-box-extended': router.url =='/login/register'}" [@FadeInAnimationFast]>
 
     <div class="left-login-box">
         <img src="assets/img/logo.svg" alt="photoshare logo">
@@ -9,12 +9,12 @@
     <router-outlet>
 
     </router-outlet>
-    <div class="right-login-box" *ngIf="router.url != '/login/register' ">
+    <div class="right-login-box" *ngIf="router.url != '/login/register' " [@FadeInAnimationFast]>
 
         <h1>WELCOME</h1>
 
         <div class="form-control error" *ngIf="errorShow"><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
-        <div class="form-control success" *ngIf="registerService.responseMessage"><i class="fa fa-check"></i>{{registerService.responseMessage.message}}</div>
+        <div class="form-control success" *ngIf="registerService.responseMessage" [@FadeInAnimation]><i class="fa fa-check"></i>{{registerService.responseMessage.message}}</div>
 
 
         <form>
