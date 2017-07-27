@@ -4,6 +4,7 @@
 
     <div class="left-login-box">
         <img src="assets/img/logo.svg" alt="photoshare logo">
+        <h2>PhotoShare</h2>
     </div>
     <router-outlet>
 
@@ -13,6 +14,8 @@
         <h1>WELCOME</h1>
 
         <div class="form-control error" *ngIf="errorShow"><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
+        <div class="form-control success" *ngIf="registerService.responseMessage"><i class="fa fa-check"></i>{{registerService.responseMessage.message}}</div>
+
 
         <form>
         

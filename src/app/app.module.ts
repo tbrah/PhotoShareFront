@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
-import { RegisterComponent } from './register/register.component';
+import { RegisterService } from './register.service';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     UserService, 
     AuthGuardService,
     AuthService,
+    RegisterService,
   ],
   bootstrap: [AppComponent]
 })

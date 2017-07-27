@@ -60,6 +60,10 @@
                 margin-left:auto;
                 margin-right:auto;
             }
+            h2{
+                color:#fff;
+                text-align:center;
+            }
         }
 
         .right-login-box{
@@ -136,7 +140,7 @@
                     height:80px;
                     color:#fff;
                     font-size:20px;
-                    background-color:#2ca977;
+                    background-color:$success;
                     border:none;
                     border-radius:5px;
                     transition:all 0.2s ease-in;
@@ -144,7 +148,7 @@
                     text-align:center;
 
                     &:hover{
-                        background-color:lighten(#2ca977, 8%);
+                        background-color:lighten($success, 8%);
                     }
 
                     i{
@@ -164,7 +168,7 @@
     .error{
         position:absolute;
         width:350px;
-        background-color:#d9534f!important;
+        background-color:$error;
         border:none;
         color:#fff;
         font-weight:400;
@@ -173,6 +177,29 @@
 
         i{
             margin-right:5px;
+        }
+    }
+    .success{
+        position:absolute;
+        width:350px;
+        background-color:$success;
+        border:none;
+        color:#fff;
+        font-weight:400;
+        text-align:center;
+        animation: floatdown 0.5s ease-out;
+
+        i{
+            margin-right:5px;
+        }
+    }
+
+    @keyframes floatdown{
+        0%{
+            transform:translateY(-30px);
+        }
+        100%{
+            transform:translateY(0px);
         }
     }
 

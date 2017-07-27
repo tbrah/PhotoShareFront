@@ -1,13 +1,19 @@
 <div class="right-login-box regi">
 
-    <a class="back-link" routerLink="/login"><i class="fa fa-angle-left"></i> Back to login</a>
+    <a class="back-link" routerLink="/login" (click)="errorReset()"><i class="fa fa-angle-left"></i> Back to login</a>
     <h1>REGISTER NEW ACCOUNT.</h1>
 
-    <form [formGroup]="rForm" (ngSubmit)="addUser(rForm.value)">
+    <div class="form-control error" *ngIf="registerService.errorMessage.length > 0">
+        <ul>
+            <li *ngFor="let number of registerService.errorMessage | slice:0:1;">{{number}}</li>
+        </ul>
+    </div>
+
+    <form [formGroup]="rForm" (ngSubmit)="registerService.addUser(rForm.value)">
 
         <label for="username">USERNAME
             <span class="span-error" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">
-                - Username must be between 3 - 30 characters.
+                - Must be between 3 - 30 characters.
             </span>
         </label>
         <input class="bordered" type="text" formControlName="username" name="username">
@@ -29,7 +35,7 @@
         <label for="password_confirmation">REPEAT PASSWORD</label>
         <input class="bordered" type="password" formControlName="password_confirmation" name="password_confirmation">
 
-        <button class="submit" type="submit" [disabled]="!rForm.valid"><span [hidden]="loading">Sign Up</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loading"></i></button>
+        <button class="submit" type="submit" [disabled]="!rForm.valid"><span [hidden]="registerService.loading">Sign Up</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!registerService.loading"></i></button>
 
     </form>
 

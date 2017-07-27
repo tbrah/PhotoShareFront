@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
 import { Router } from '@angular/router';
+import { RegisterService } from '../register.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   password:string = "";
   password_confirmation:string = "";
 
-  constructor(private fb: FormBuilder, private http:Http, private router:Router) {
+  constructor(private fb: FormBuilder, private http:Http, private router:Router, private registerService:RegisterService) {
     /**
      * Validation requirements for the form.
      */
@@ -32,55 +33,5 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  public loading = false;
-  public errorMessage:string;
-
-  /**
-   * @param post = data from the form 
-   * -username
-   * -email
-   * -password
-   * -password_confirmation
-   */
-  addUser(post){
-    this.loading = true;
-    if(post.password == post.password_confirmation){
-
-      var headers = new Headers({
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      });
-
-      let newUser = 
-      { username: post.username, 
-        email: post.email,
-        password: post.password,
-        password_confirmation: post.password_confirmation
-    };
-      /**
-       * Posting the register information to the server.
-       */
-      this.http.post("http://photoshare.dev:8000/api/users/create", JSON.stringify(newUser),{
-        headers:headers
-        }).subscribe(data => this.router.navigate(['/login']),
-                      error => {
-                        //backend make it return errors to display here.
-                        console.log(error._body);
-                        this.loading = false;
-                      }
-        );
-
-        // Send the user back to the login page.
-        
-
-    } else {
-      // Do some logic so it returns something in the dom.
-      console.log("Passwords didn't match");
-      this.loading = false;
-    }
-
-  }
-
 
 }
