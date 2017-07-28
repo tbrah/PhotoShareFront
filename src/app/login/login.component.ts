@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
      */
     validateUser(){
         this.loggingIn = true;
+        this.registerService.responseMessage = "";
         this.userService.getAccessToken()
         .subscribe(
             data => {

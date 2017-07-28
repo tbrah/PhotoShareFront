@@ -13,7 +13,7 @@
 
         <h1>WELCOME</h1>
 
-        <div class="form-control error" *ngIf="errorShow"><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
+        <div class="form-control error" *ngIf="errorShow" [@FadeInAnimation]><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
         <div class="form-control success" *ngIf="registerService.responseMessage" [@FadeInAnimation]><i class="fa fa-check"></i>{{registerService.responseMessage.message}}</div>
 
 

@@ -10,6 +10,12 @@ export class RegisterService {
   constructor(private http:Http, private router:Router) {}
 
     public loading = false;
+
+    /**
+     * Shows success message in the login page
+     * if there is a string contained in the 
+     * variable.
+     */
     public responseMessage;
 
     public errorMessage = [];
@@ -48,6 +54,7 @@ export class RegisterService {
         }).subscribe(
           data => {
             this.router.navigate(['/login']);
+            this.loading = false;
             this.responseMessage = data.json();
           },
           error => {

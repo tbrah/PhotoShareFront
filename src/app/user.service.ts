@@ -30,7 +30,7 @@ export class UserService {
         let postData = {
             grant_type: "password",
             client_id: 2,
-            client_secret: "e9RdLDSAzQIZN7sK1IXvykdmVJEyP2e3XZWv9viY",
+            client_secret: "ThvwvgOxofVHimO9EqnQU7PBq29mjPtvvID50SY6",
             username: this.username,
             password: this.password,
             scope: ""
