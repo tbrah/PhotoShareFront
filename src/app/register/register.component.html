@@ -13,10 +13,11 @@
 
         <label for="username">USERNAME
             <span class="span-error" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched" [@FadeInAnimationFast]>
-                - Must be between 3 - 30 characters.
+                <br>- Must be between 3 - 30 characters.
+                - No spaces.
             </span>
         </label>
-        <input class="bordered" type="text" formControlName="username" name="username">
+        <input class="bordered" type="text" formControlName="username" name="username" pattern="[a-zA-Z0-9]*">
 
         <label for="email">EMAIL
             <span class="span-error" *ngIf="!rForm.controls['email'].valid && rForm.controls['email'].touched" [@FadeInAnimationFast]>
@@ -27,7 +28,7 @@
 
         <label for="password">PASSWORD
             <span class="span-error" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched" [@FadeInAnimationFast]>
-                - Must be at least 4 charcters long.
+                - Must be at least 6 charcters long.
             </span>
         </label>
         <input class="bordered" type="password" formControlName="password" name="password">

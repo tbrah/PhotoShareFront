@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 import { RegisterService } from '../register.service';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 import { FadeInAnimationFast, FadeInAnimation } from '../_animations';
 
 @Component({
@@ -13,12 +13,22 @@ import { FadeInAnimationFast, FadeInAnimation } from '../_animations';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService:AuthService, private userService:UserService, private router:Router, private registerService:RegisterService) { }
+  constructor(
+    private authService:AuthService, 
+    private userService:UserService, 
+    private router:Router, 
+    private activatedRoute:ActivatedRoute,
+    private registerService:RegisterService) 
+    { 
+        this.activatedRoute.params.subscribe( params => this.emailValidated = params.state);
+    }
 
   ngOnInit() {
   }
 
   loggingIn:boolean = false;
+  errorShow:boolean = false;
+  emailValidated;
 
     /**
      * Runs the getAccesstoken method in the UserService.
@@ -42,8 +52,5 @@ export class LoginComponent implements OnInit {
                 this.loggingIn = false;
             });
     }
-
-    errorShow:boolean = false;
-
 
 }

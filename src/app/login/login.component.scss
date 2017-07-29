@@ -21,7 +21,7 @@
     top:0;
     height:100%;
     width:100%;
-    background:linear-gradient(141deg, #3A1C71 0%, #D76D77 51%, #FFAF7B 75%);
+    background:linear-gradient(141deg, #3A1C71 0%, #D76D77 51%, #f99060 75%);
     background-size:cover;
     overflow:hidden;
     opacity:0.6;
@@ -98,7 +98,7 @@
                 }
                 label{
                     font-weight:normal;
-                    font-size:12px;
+                    font-size:10px;
                     font-weight:300;
                     color:#fff;
                     margin-bottom:7px;
@@ -140,15 +140,15 @@
                     height:80px;
                     color:#fff;
                     font-size:20px;
-                    background-color:$success;
+                    background:linear-gradient(159deg, #D76D77 31%, #f99060 79%);
                     border:none;
                     border-radius:5px;
-                    transition:all 0.2s ease-in;
+                    transition:all 0.3s ease-in;
                     outline:none;
                     text-align:center;
 
                     &:hover{
-                        background-color:lighten($success, 8%);
+                        background:linear-gradient(159deg, lighten(#D76D77, 4%) 31%, lighten(#f99060, 4%) 79%);
                     }
 
                     i{
@@ -214,4 +214,29 @@
 
     .login-box-extended{
         height:550px;
+    }
+
+    .popup-background{
+        cursor:pointer;
+        position:fixed;
+        z-index:100;
+        width:100%;
+        height:100%;
+        background-color:rgba(0,0,0,0.7);
+    }
+    .popup{
+        position:fixed;
+        z-index:200;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        padding:9px 13px;
+        color:#fff;
+        border-radius:3px;
+        box-shadow:$standard-shadow;
+        margin:auto;
+        width:480px;
+        height:40px;
+        background-color:$success;
     }

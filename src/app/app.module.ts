@@ -17,8 +17,9 @@ import { RegisterService } from './register.service';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'users', component: UsersComponent, canActivate: [AuthGuardService] },
+  { path: 'login/emailValid/:state', component: LoginComponent},
   { path: 'login', component: LoginComponent, children: [
     { path: 'register', component: RegisterComponent},
   ]}, // TODO: Make this route unavailable to users already logged in.

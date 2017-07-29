@@ -11,11 +11,10 @@
     </router-outlet>
     <div class="right-login-box" *ngIf="router.url != '/login/register' " [@FadeInAnimationFast]>
 
-        <h1>WELCOME</h1>
+        <h1>WELCOME.</h1>
 
         <div class="form-control error" *ngIf="errorShow" [@FadeInAnimation]><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
-        <div class="form-control success" *ngIf="registerService.responseMessage" [@FadeInAnimation]><i class="fa fa-check"></i>{{registerService.responseMessage.message}}</div>
-
+        <div class="form-control success" *ngIf="emailValidated == true" [@FadeInAnimation]><i class="fa fa-check"></i>Thank you for validating!</div>
 
         <form>
         
@@ -27,10 +26,13 @@
 
             <button class="submit" type="submit" (click)="validateUser()"><span *ngIf="!loggingIn">Login</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loggingIn"></i></button>
 
-            <a class="sign-up" routerLink="register">Need an account? <span>Register</span></a>
+            <a class="sign-up" routerLink="/login/register">Need an account? <span>Register</span></a>
         
         </form>
 
     </div>
 
 </div>
+
+<div class="popup-background" *ngIf="registerService.responseMessage" (click)="registerService.responseMessage = ''" [@FadeInAnimation]></div>
+<div class="popup" *ngIf="registerService.responseMessage" (click)="registerService.responseMessage = ''" [@FadeInAnimation]><i class="fa fa-check"></i> {{registerService.responseMessage.message}}</div>
