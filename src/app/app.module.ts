@@ -14,6 +14,8 @@ import { UserService } from './user.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { RegisterService } from './register.service';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const appRoutes: Routes = [
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
   { path: 'login/emailValid/:state', component: LoginComponent},
   { path: 'login', component: LoginComponent, children: [
     { path: 'register', component: RegisterComponent},
-  ]}, // TODO: Make this route unavailable to users already logged in.
+    { path: 'forgotPassword', component: ForgotPasswordComponent},
+    { path: 'resetPassword/:id/:token', component: PasswordResetComponent},
+  ]},
 ];
 
 @NgModule({
@@ -31,6 +35,8 @@ const appRoutes: Routes = [
     UsersComponent,
     LoginComponent,
     RegisterComponent,
+    PasswordResetComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

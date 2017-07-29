@@ -9,7 +9,7 @@
     <router-outlet>
 
     </router-outlet>
-    <div class="right-login-box" *ngIf="router.url != '/login/register' " [@FadeInAnimationFast]>
+    <div class="right-login-box" *ngIf="router.url === '/login' || router.url === '/login/emailValid/1'" [@FadeInAnimationFast]>
 
         <h1>WELCOME.</h1>
 
@@ -22,7 +22,7 @@
             <input class="bordered" type="text" [(ngModel)]="userService.username" name="email" required>
             <label for="password">PASSWORD</label>
             <input class="bordered form-group has-warning" type="password" [(ngModel)]="userService.password" name="password" required>
-            <a class="forgot-password" href="#">FORGOT YOUR PASSWORD?</a>
+            <a class="forgot-password" routerLink="/login/forgotPassword">FORGOT YOUR PASSWORD?</a>
 
             <button class="submit" type="submit" (click)="validateUser()"><span *ngIf="!loggingIn">Login</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loggingIn"></i></button>
 
