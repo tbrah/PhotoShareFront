@@ -16,6 +16,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   email:string;
   loading:boolean;
+  errorShow;
 
   sendRequest(){
     this.loading = true;
@@ -33,7 +34,10 @@ export class ForgotPasswordComponent implements OnInit {
       headers:headers
     }).subscribe(data => {
       this.loading = false;
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login/resetSent']);
+    }, err => {
+      this.loading = false;
+      this.errorShow = JSON.parse(err.text());
     })
 
   }

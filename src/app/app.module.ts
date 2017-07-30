@@ -22,6 +22,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'users', component: UsersComponent, canActivate: [AuthGuardService] },
   { path: 'login/emailValid/:state', component: LoginComponent},
+  { path: 'login/resetSent', component: LoginComponent},
   { path: 'login', component: LoginComponent, children: [
     { path: 'register', component: RegisterComponent},
     { path: 'forgotPassword', component: ForgotPasswordComponent},

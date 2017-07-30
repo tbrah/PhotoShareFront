@@ -9,12 +9,15 @@
     <router-outlet>
 
     </router-outlet>
-    <div class="right-login-box" *ngIf="router.url === '/login' || router.url === '/login/emailValid/1'" [@FadeInAnimationFast]>
+    <div class="right-login-box" 
+    *ngIf="router.url == '/login' || router.url == '/login/emailValid/1' || router.url == '/login/resetSent'" 
+    [@FadeInAnimationFast]>
 
         <h1>WELCOME.</h1>
 
         <div class="form-control error" *ngIf="errorShow" [@FadeInAnimation]><i class="fa fa-exclamation-circle"></i>Invalid login information, please try again.</div>
         <div class="form-control success" *ngIf="emailValidated == true" [@FadeInAnimation]><i class="fa fa-check"></i>Thank you for validating!</div>
+        <div class="form-control success" *ngIf="router.url == '/login/resetSent'" [@FadeInAnimation]><i class="fa fa-envelope-o"></i>Reset password email has been sent!</div>
 
         <form>
         
