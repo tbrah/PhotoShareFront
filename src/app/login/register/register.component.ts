@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
 import { Router } from '@angular/router';
-import { RegisterService } from '../register.service';
-import { FadeInAnimation, FadeInAnimationFast } from '../_animations';
+import { RegisterService } from '../../register.service';
+import { FadeInAnimation, FadeInAnimationFast } from '../../_animations';
 
 @Component({
   selector: 'app-register',

@@ -14,13 +14,15 @@ export class AuthGuardService implements CanActivate {
   }
 
   checkLogin(url:string):boolean{
-    /**
-     * This is currently saying that it is true
-     * this should be saying its false and sending
-     * true only when the credentials are validated.
-     */
-    if(this.authService.isLoggedIn){return true}
 
+    if(this.authService.isLoggedIn){
+      return true
+    }
+
+    /**
+     * Saves the url the user was trying to access
+     * before they were logged in.
+     */
     this.authService.redirectUrl = url;
 
     this.router.navigate(['/login']);

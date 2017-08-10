@@ -3,7 +3,7 @@ import { CanActivate, ActivatedRoute, Router } from '@angular/router';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FadeInAnimation, FadeInAnimationFast } from '../_animations';
+import { FadeInAnimation, FadeInAnimationFast } from '../../_animations';
 
 @Component({
   selector: 'app-password-reset',

@@ -6,9 +6,11 @@
         <img src="assets/img/logo.svg" alt="photoshare logo">
         <h2>PhotoShare</h2>
     </div>
-    <router-outlet>
 
+    <router-outlet>
+        <!-- Router for forgot password / pw reset / register -->
     </router-outlet>
+    
     <div class="right-login-box" 
     *ngIf="router.url == '/login' || router.url == '/login/emailValid/1' || router.url == '/login/resetSent'" 
     [@FadeInAnimationFast]>

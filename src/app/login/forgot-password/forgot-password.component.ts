@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { CanActivate, ActivatedRoute, Router } from '@angular/router';
-import { FadeInAnimationFast } from '../_animations';
+import { FadeInAnimationFast } from '../../_animations';
 
 @Component({
   selector: 'app-forgot-password',
