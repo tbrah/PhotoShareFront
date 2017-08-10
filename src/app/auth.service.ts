@@ -21,9 +21,13 @@ export class AuthService {
   // Token provided by server after login credentials confirmed.
   accessToken:string;
 
-  isLoggedIn = false;
-
+  // Used for storing the url the user was trying to access before login.
   redirectUrl:string;
+
+  // Used to give permission to the backend.
+  clientSecret:string = "hxHGjLHLEHBLWuEDBqfeNReggAfqoiPhk4FfxdmL";
+
+  isLoggedIn = false;
 
   login() {
     return this.isLoggedIn = true;

@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 
 import { UserService } from './user.service';
+import { LoginService } from './login.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { RegisterService } from './register.service';
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    UserService, 
+    UserService,
+    LoginService,
     AuthGuardService,
     AuthService,
     RegisterService,

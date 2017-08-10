@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { LoginService } from '../login.service';
 import { AuthService } from '../auth.service';
 import { RegisterService } from '../register.service';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService:AuthService, 
-    private userService:UserService, 
+    private userService:UserService,
+    private loginService:LoginService, 
     private router:Router, 
     private activatedRoute:ActivatedRoute,
     private registerService:RegisterService) 
@@ -40,7 +42,7 @@ export class LoginComponent implements OnInit {
     validateUser(){
         this.loggingIn = true;
         this.registerService.responseMessage = "";
-        this.userService.getAccessToken()
+        this.loginService.getAccessToken()
         .subscribe(
             data => {
             this.authService.accessToken = data.access_token;
