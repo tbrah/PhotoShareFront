@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   emailValidated;
 
     /**
-     * Runs the getAccesstoken method in the UserService.
+     * Runs the getAccesstoken method in the LoginService.
      * Sets the accessToken recieved from the backend.
      * Sets login to true for routing permissions.
      * Redirects the user to the page they were trying
@@ -48,6 +48,13 @@ export class LoginComponent implements OnInit {
             this.authService.accessToken = data.access_token;
             this.authService.login();
             sessionStorage.setItem("token", this.authService.accessToken);
+            this.loginService.getLoggedUser()
+            .subscribe(
+                data => {
+                    this.loginService.user = data[0]
+                    console.log("testing");
+                    console.log(this.loginService.user);
+                });
             
                 // Check if redirectUrl string is empty or not.
                 if(!this.authService.redirectUrl){

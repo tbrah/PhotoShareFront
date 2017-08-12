@@ -18,11 +18,10 @@ import { RegisterService } from './register.service';
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { MasterComponent } from './master/master.component';
+import { NavComponent } from './master/nav/nav.component';
 
 
 const appRoutes: Routes = [
-  //{ path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: '', component: MasterComponent, canActivate: [AuthGuardService]},
 
   { path: 'users', component: UsersComponent, canActivate: [AuthGuardService] },
 
@@ -38,7 +37,7 @@ const appRoutes: Routes = [
   // Login paths end
 
   // Master paths start
-  { path: '', component: MasterComponent},
+  { path: '', component: MasterComponent, canActivate: [AuthGuardService]},
   // Master paths end
   
 ];
@@ -52,6 +51,7 @@ const appRoutes: Routes = [
     PasswordResetComponent,
     ForgotPasswordComponent,
     MasterComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
