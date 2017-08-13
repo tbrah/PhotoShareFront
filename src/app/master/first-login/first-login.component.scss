@@ -1,0 +1,139 @@
+@import '~vars.scss';
+.popup-background{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.35);
+    z-index:50;
+}
+.details-box{
+        position:absolute;
+        z-index:100;
+        background-color:#fff;
+        z-index:100;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        margin:auto;
+        width:584px;
+        height:735px;
+        border-radius:3px;
+        overflow:hidden;
+        box-shadow:$standard-shadow;
+        padding:13px 13px;
+
+        .small-logo{
+            height:25px;
+            width:25px;
+        }
+
+        h1{
+            font-size:26px;
+            text-align:center;
+            font-weight:400;
+            color:$gray-font;
+            margin-top:50px;
+            margin-bottom:20px;
+        }
+        
+        .subtitle{
+            text-align:center;
+            font-size:16px;
+            color:$light-gray-font;
+        }
+
+        .avatar-upload{
+            display:block;
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            box-shadow:0px 6px 35px -3px rgba(0, 0, 0, 0.36);
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:55px;
+            margin-bottom:25px;
+            background-size:cover;
+            background-size:85%;
+            background-position:center;
+        }
+
+        form{
+            width:80%;
+            margin:auto;
+
+            .avatar-btn{
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                z-index: -1;
+
+                &:hover{
+                    background:$button-gradient-hover;
+                }
+            }
+            .avatar-btn + label{
+                display:block;
+                margin:0 auto;
+                width:145px;
+                height:30px;
+                border-radius:5px;
+                font-weight:400;
+                text-align:center;
+                padding-top:6px;
+                background:$button-gradient;
+                font-size:12px;
+                color:#fff;
+                border:none;
+                cursor:pointer;
+                margin-bottom:30px;
+
+                &:hover{
+                    background:$button-gradient-hover;
+                }
+            }
+
+            .light-label{
+                color:$light-gray-font;
+                font-weight:400;
+            }
+
+            .orange-border{
+                width:100%;
+                margin-bottom:20px;
+                border-radius:5px;
+                border:1px solid lighten($orange, 15%);
+                padding-left:8px;
+                padding-top:5px;
+                padding-bottom:5px;
+                outline:none;
+                transition:all 0.2s ease-in;
+
+                &:focus{
+                    border: 1px solid $orange;
+                }
+            }
+
+            .submit{
+                display:block;
+                width:220px;
+                height:40px;
+                border:none;
+                color:#fff;
+                background:$button-gradient;
+                border-radius:5px;
+                margin: 0 auto;
+                margin-top:15px;
+
+                &:hover{
+                    background:$button-gradient-hover;
+                }
+            }
+        }
+        
+}

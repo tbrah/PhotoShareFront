@@ -7,16 +7,19 @@ import { User } from './user';
 @Injectable()
 export class LoginService {
 
-    user: User;
+  user: any;
 
   constructor(private http:Http, private authService:AuthService) { }
 
   // Link used for authentication
   private oauthUrl = "http://photoshare.dev:8000/oauth/token";
 
-  //Credentials binded in the login form.
+  // Credentials binded in the login form.
   username:string;
   password:string;
+
+  // Checks if its the first time user is logged in.
+  firstLogin:boolean;
 
   /**
    * Grabs the access token from the backend.

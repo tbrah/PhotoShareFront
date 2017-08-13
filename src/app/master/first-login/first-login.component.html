@@ -1,0 +1,29 @@
+<p>
+  first-login works!
+</p>
+<div class="popup-background"></div>
+<div class="details-box">
+  <img class="small-logo" src="./assets/img/logo-no-text.svg">
+
+  <h1>Welcome to PhotoShare!</h1>
+  <p class="subtitle"><i>Profile setup</i></p>
+
+  <div class="avatar-upload" [ngStyle]="{'background-image':'url(./assets/img/no_avatar.png)'}"></div>
+
+  <form [formGroup]="detailsForm" (ngSubmit)="saveDetails(detailsForm.value)" enctype="multipart/form-data">
+    <input type="file" id="file" name="file" class="avatar-btn" formControlName="avatar">
+    <label for="file">Upload Avatar</label>
+
+    <label for="first_name" class="light-label">first name:</label>
+    <input type="text" id="first_name" name="first_name" class="orange-border" formControlName="first_name">
+
+    <label for="last_name" class="light-label">last name:</label>
+    <input type="text" id="last_name" name="last_name" class="orange-border" formControlName="last_name">
+
+    <label for="country" class="light-label">country:</label>
+    <input type="text" id="country" name="country" class="orange-border" formControlName="country">
+
+    <button class="submit" type="submit"><span>Next</span></button>
+  </form>
+  
+</div>

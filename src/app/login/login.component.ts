@@ -51,9 +51,9 @@ export class LoginComponent implements OnInit {
             this.loginService.getLoggedUser()
             .subscribe(
                 data => {
-                    this.loginService.user = data[0]
-                    console.log("testing");
-                    console.log(this.loginService.user);
+                    this.loginService.user = data[0];
+                    this.loginService.firstLogin = this.loginService.user.info.first_login;
+                    console.log(this.loginService.firstLogin);
                 });
             
                 // Check if redirectUrl string is empty or not.

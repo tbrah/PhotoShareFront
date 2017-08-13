@@ -19,6 +19,7 @@ import { PasswordResetComponent } from './login/password-reset/password-reset.co
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { MasterComponent } from './master/master.component';
 import { NavComponent } from './master/nav/nav.component';
+import { FirstLoginComponent } from './master/first-login/first-login.component';
 
 
 const appRoutes: Routes = [
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     ForgotPasswordComponent,
     MasterComponent,
     NavComponent,
+    FirstLoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -61,10 +61,12 @@ nav{
         float:right;
         margin-top:-2px;
 
-        img{
+        .avatar{
             display:block;
             border-radius:50%;
-            background-color:black;
+            background-size:cover;
+            background-position-x: center;
+            background-position-y: center;
             width:45px;
             height:45px;
             float:left;
