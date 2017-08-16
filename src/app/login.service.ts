@@ -7,6 +7,7 @@ import { User } from './user';
 @Injectable()
 export class LoginService {
 
+  // User that is logged in.
   user: any;
 
   constructor(private http:Http, private authService:AuthService) { }

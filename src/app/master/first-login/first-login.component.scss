@@ -58,7 +58,8 @@
             margin-top:55px;
             margin-bottom:25px;
             background-size:cover;
-            background-size:85%;
+            background-size:100%;
+            background-repeat:no-repeat;
             background-position:center;
         }
 
@@ -95,6 +96,10 @@
 
                 &:hover{
                     background:$button-gradient-hover;
+                }
+
+                i{
+                    font-size:20px;
                 }
             }
 

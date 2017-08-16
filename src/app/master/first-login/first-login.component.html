@@ -8,11 +8,12 @@
   <h1>Welcome to PhotoShare!</h1>
   <p class="subtitle"><i>Profile setup</i></p>
 
-  <div class="avatar-upload" [ngStyle]="{'background-image':'url(./assets/img/no_avatar.png)'}"></div>
+  <div class="avatar-upload" [ngStyle]="{'background-image':'url(' + imageViewerUrl + ')'}"></div>
 
   <form [formGroup]="detailsForm" (ngSubmit)="saveDetails(detailsForm.value)" enctype="multipart/form-data">
-    <input type="file" id="file" name="file" class="avatar-btn" formControlName="avatar">
-    <label for="file">Upload Avatar</label>
+
+    <input type="file" id="uploadFile" name="uploadFile" class="avatar-btn" (change)="fileChange($event)">
+    <label for="uploadFile"><span *ngIf="!loadingImage">Upload Avatar</span><span *ngIf="loadingImage"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></span></label>
 
     <label for="first_name" class="light-label">first name:</label>
     <input type="text" id="first_name" name="first_name" class="orange-border" formControlName="first_name">
@@ -24,6 +25,7 @@
     <input type="text" id="country" name="country" class="orange-border" formControlName="country">
 
     <button class="submit" type="submit"><span>Next</span></button>
+
   </form>
   
 </div>

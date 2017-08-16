@@ -19,7 +19,7 @@
     </div>
 
     <div class="profile-drpdwn">
-      <img class="avatar" *ngIf="loginService.user" [ngStyle]="{'background-image':'url(' + loginService.user?.info.avatar + ')'}">
+      <div class="avatar" *ngIf="loginService.user" [ngStyle]="{'background-image':'url(' + loginService.user?.info.avatar + ')'}"></div>
       <p>{{loginService.user?.username}} <i class="fa fa-angle-down"></i></p>
       <button><i class="fa fa-plus-square-o"></i> <span>New Photo</span></button>
     </div>

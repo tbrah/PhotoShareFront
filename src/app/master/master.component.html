@@ -2,4 +2,4 @@
 <p>
   master works!
 </p>
-<first-login-popup></first-login-popup>
+<first-login-popup *ngIf="loginService.user?.info.first_login"></first-login-popup>
