@@ -20,6 +20,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { MasterComponent } from './master/master.component';
 import { NavComponent } from './master/nav/nav.component';
 import { FirstLoginComponent } from './master/first-login/first-login.component';
+import { ProfilePageComponent } from './master/profile-page/profile-page.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,9 @@ const appRoutes: Routes = [
   // Login paths end
 
   // Master paths start
-  { path: '', component: MasterComponent, canActivate: [AuthGuardService]},
+  { path: '', component: MasterComponent, canActivate: [AuthGuardService], children: [
+    { path: 'profile/:username', component: ProfilePageComponent},
+  ]},
   // Master paths end
   
 ];
@@ -54,6 +57,7 @@ const appRoutes: Routes = [
     MasterComponent,
     NavComponent,
     FirstLoginComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

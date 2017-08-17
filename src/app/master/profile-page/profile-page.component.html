@@ -1,0 +1,59 @@
+<div class="container">
+
+  <div class="profile-label">
+
+    <div class="profile-img-circle">
+      <div class="profile-img" *ngIf="loginService.user" [ngStyle]="{'background-image':'url(' + loginService.user?.info?.avatar + ')'}"></div>
+    </div>
+
+    <div class="info-box-wrapper">
+
+      <div class="info-box">
+
+        <h1>{{loginService.user.info.first_name}} {{loginService.user.info.last_name}}</h1>
+        <p class="country-p">{{loginService.user.info.country}}</p>
+
+        <p class="photography-type">Landscape Photographer</p>
+
+        <ul>
+          <li>hire me!</li>
+          <li>follow</li>
+          <li>send message</li>        
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="stat-box-wrapper">
+
+      <div class="total-uploads-wrapper stat-box">
+        <i class="fa fa-picture-o"></i>
+        <p class="numbers">21</p>
+        <p class="title">total uploads</p>
+      </div>
+
+      <div class="total-followers-wrapper stat-box">
+        <i class="fa fa-user-o"></i>
+        <p class="numbers">312</p>
+        <p class="title">total followers</p>        
+      </div>
+
+      <div class="completed-jobs-wrapper stat-box">
+        <i class="fa fa-certificate fa-stack-2x">        
+          <i class="fa fa-check fa-stack-1x"></i>   
+        </i>
+        <p class="numbers">5</p>
+        <p class="title">completed jobs</p>        
+      </div>
+
+    </div>
+
+  </div>
+  <!-- Profile Label End-->
+
+  <div class="row">
+    <div class="col-md-6 left-side"></div>
+    <div class="col-md-6 right-side"></div>    
+  </div>
+</div>

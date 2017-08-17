@@ -10,7 +10,18 @@ export class LoginService {
   // User that is logged in.
   user: any;
 
-  constructor(private http:Http, private authService:AuthService) { }
+  constructor(private http:Http, private authService:AuthService) { 
+
+    /**
+     *  Grab the user stored in sessionStorage.
+     *  If User refreshes the page the data persists.
+     *  Data is lost once user either logs out or closes tab.
+     */
+    if(sessionStorage.length > 0){
+      this.user = JSON.parse(sessionStorage.getItem("user"));
+    }
+
+  }
 
   // Link used for authentication
   private oauthUrl = "http://photoshare.dev:8000/oauth/token";

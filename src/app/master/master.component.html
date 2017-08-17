@@ -1,5 +1,5 @@
 <nav-bar></nav-bar>
-<p>
-  master works!
-</p>
-<first-login-popup *ngIf="loginService.user?.info.first_login"></first-login-popup>
+
+<first-login-popup *ngIf="loginService.user?.info?.first_login"></first-login-popup>
+
+<router-outlet></router-outlet>

@@ -35,9 +35,7 @@ export class LoginComponent implements OnInit {
     /**
      * Runs the getAccesstoken method in the LoginService.
      * Sets the accessToken recieved from the backend.
-     * Sets login to true for routing permissions.
-     * Redirects the user to the page they were trying
-     * to access prior to them logging in.
+     * Sets login to true for routing permission.
      */
     validateUser(){
         this.loggingIn = true;
@@ -51,16 +49,14 @@ export class LoginComponent implements OnInit {
             this.loginService.getLoggedUser()
             .subscribe(
                 data => {
-                    this.loginService.user = data[0];
+                    sessionStorage.setItem("user", JSON.stringify(data[0]));
+                    this.loginService.user = JSON.parse(sessionStorage.getItem("user"));
                     this.loginService.firstLogin = this.loginService.user.info.first_login;
+
+                    this.router.navigate(['/profile/' + this.loginService.user.username]);
                 });
             
-                // Check if redirectUrl string is empty or not.
-                if(!this.authService.redirectUrl){
-                    this.router.navigate(['']);
-                } else {
-                this.router.navigate([this.authService.redirectUrl]);
-                }
+
 
             }, 
             err => {

@@ -13,6 +13,9 @@ $darker-orange:#D7836D;
 $gray-font:#575757;
 $light-gray-font:#95989A;
 
+// Borders
+$light-gray-border:1px solid rgba(149, 152, 154, 0.44);
+
 //Gradients
 $button-gradient: linear-gradient(159deg, #D76D77 31%, #f99060 79%);
 $button-gradient-hover: linear-gradient(159deg, lighten(#D76D77, 4%) 31%, lighten(#f99060, 4%) 79%);

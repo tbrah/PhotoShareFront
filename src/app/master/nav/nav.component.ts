@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../login.service';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
@@ -8,9 +9,18 @@ import { LoginService } from '../../login.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private loginService:LoginService) {}
+  constructor(private loginService:LoginService, private router:Router) {}
 
   ngOnInit() {
+  }
+
+  signout(){
+    this.router.navigate(["/login"]);
+    // Reset these values so if user logs out and in credientails are wiped.
+    this.loginService.user = [];
+    this.loginService.username = "";
+    this.loginService.password = "";
+    sessionStorage.removeItem("user");
   }
 
 }

@@ -9,6 +9,7 @@ nav{
     background:#FFF;
     padding:18px 0px;
     box-shadow:$standard-shadow;
+    margin-bottom:50px;
     
 
     .logo{
@@ -16,6 +17,7 @@ nav{
         width:160px;
         padding-right:20px;
         border-right: 1px solid $light-gray;
+        cursor:pointer;
 
         @media only screen and (max-width:575px){
             display:none;
@@ -28,6 +30,7 @@ nav{
         height:39px;
         width:60px;
         border-right:none;
+        cursor:pointer;
 
         @media only screen and (max-width:575px){
             display:block;
@@ -70,6 +73,7 @@ nav{
             width:45px;
             height:45px;
             float:left;
+            box-shadow:$standard-shadow;
 
             @media only screen and (max-width:460px){
                 display:none;
@@ -132,6 +136,30 @@ nav{
                 }
             }
 
+        }
+    }
+
+    .signout{
+        float:right;
+        margin-left:10px;
+        width:40px;
+        height:45px;
+        text-align:center;
+        padding-top:12px;
+        padding-left:2px;
+        border-radius:5px;
+        border:1px solid rgba(0,0,0,0.25);
+        box-shadow:$darker-shadow;
+        color:$gray-font;
+        cursor:pointer;
+        transition:all 0.2s ease-in;
+
+        &:hover{
+            color:#fff;
+            border-color:transparent;
+            background:$button-gradient;
+            box-shadow:0px 3px 7px 0px rgba(0, 0, 0, 0.25);
+            transform:translateY(1px);
         }
     }
 

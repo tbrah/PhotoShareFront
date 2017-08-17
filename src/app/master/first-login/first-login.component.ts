@@ -99,6 +99,7 @@ export class FirstLoginComponent implements OnInit {
             // Reload the new data the user has sent.
                 .subscribe(data => {
                     this.loginService.user = data[0];
+                    this.loginService.user = JSON.parse(sessionStorage.getItem("user"));
                 }),
             error => console.log(error)
         )
