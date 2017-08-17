@@ -1,0 +1,157 @@
+@import "~vars.scss";
+
+.image-post{
+    position:relative;
+    width:100%;
+    min-height:300px;
+    background-color:#fff;
+    box-shadow:$standard-shadow;
+    border-radius:5px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:20px;
+    padding-bottom:20px;
+    transition:all 0.2s ease-in;
+
+
+    &:hover{
+        cursor:pointer;
+        transform:translateY(-1px);
+        box-shadow:$hover-shadow;
+    }
+
+    .post-header{
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        margin-bottom:20px;
+
+        .left-side{
+            display:flex;
+
+            .profile-img{
+                height:40px;
+                width:40px;
+                border-radius:50%;
+                background-size:101%;
+                background-position:center;
+            }
+
+            h5{
+                font-size:16px;
+                color:$darker-orange;
+                margin-left:10px;
+                margin-bottom:0;
+            }
+        }
+
+        .right-side{
+
+            p{
+                margin-bottom:0;
+                color:$light-gray;
+            }
+        }
+    }
+
+    .main-image{
+        width:100%;
+        border-radius:5px;
+        box-shadow:$standard-shadow;
+    }
+
+    .stat-bar{
+        display:flex;
+        width:100%;
+        height:30px;
+        padding-top:15px;
+        color:$light-gray;
+
+        i{
+            font-size:20px;            
+        }
+
+        p{
+            font-size:12px;
+        }
+
+        .likes-wrapper{
+            display:flex;
+            padding-right:10px;
+            border-right:$light-gray-border;
+            cursor:pointer;
+            transition:all 0.2s ease-in;
+            
+            &:hover{
+                transform:translateY(-1px);
+            }
+
+            &:hover .fa-heart-o{
+                color:$orange;
+            }
+
+            &:hover p{
+                color:$orange;
+            }
+
+            .fa-heart-o{
+                margin-right:5px;
+            }
+        }
+
+        .comments-wrapper{
+            display:flex;
+            padding-left:10px;
+            cursor:pointer;
+            transition:all 0.2s ease-in;
+
+            &:hover{
+                transform:translateY(-1px);
+            }
+
+            &:hover .fa-commenting-o{
+                color:#3498db;
+            }
+
+            &:hover p{
+                color:#3498db;
+            }
+            
+            
+            .fa-commenting-o{
+                margin-right:5px;
+                font-size:18px;
+            }
+        }
+    }
+
+    .description{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        padding:10px 20px;
+        border-radius:5px;
+        box-shadow:0px 3px 12px 5px rgba(0,0,0,0.16);
+        margin-top:20px;
+        margin-bottom:20px;
+
+        p{
+            margin-bottom:0;
+        }
+
+    }
+
+    .more-comments{
+        font-size:12px;
+        margin-bottom:0;
+        color:$darker-orange;
+        transition:all 0.2s ease-in;
+
+        &:hover{
+            color:$orange;
+            transform:translateY(-1px);
+            cursor:pointer;
+        }
+    }
+}

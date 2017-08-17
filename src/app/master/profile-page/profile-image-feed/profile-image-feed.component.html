@@ -1,3 +1,41 @@
-<p>
-  profile-image-feed works!
-</p>
+<div class="image-post">
+
+  <div class="post-header">
+    <div class="left-side">
+
+      <div class="profile-img" 
+      *ngIf="loginService.user?.info?.avatar" 
+      [ngStyle]="{'background-image': 'url(' + loginService.user.info.avatar + ')'}">
+      </div>
+
+      <h5>{{loginService.user?.info?.first_name}} {{loginService.user?.info?.last_name}}</h5>
+
+    </div>
+
+    <div class="right-side">
+      <p>12 / 01 / 2017</p>
+    </div>
+  </div>
+  <!--post header end-->
+
+  <img class="main-image" src="/assets/img/login-background.jpg">
+
+  <div class="stat-bar">
+    
+    <div class="likes-wrapper">
+      <i class="fa fa-heart-o"></i><p>11</p>
+    </div>
+
+    <div class="comments-wrapper">
+      <i class="fa fa-commenting-o"></i><p>4</p>
+    </div>
+
+  </div>
+  <!--stat-bar end-->
+
+  <div class="description">
+    <p>Proin faucibus hendrerit mollis. Nulla nunc nulla, pretium in risus nec, egestas commodo erat. Fusce condimentum ut.</p>
+  </div>
+
+  <p class="more-comments">show more comments <i class="fa fa-angle-down"></i></p>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../../login.service';
 
 @Component({
   selector: 'profile-image-feed',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileImageFeedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService:LoginService) { }
 
   ngOnInit() {
   }

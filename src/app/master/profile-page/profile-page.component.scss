@@ -78,7 +78,7 @@
                 transition:all 0.2s ease-in;
 
                 &:hover{
-                    color:darken($darker-orange, 10%);
+                    color:$orange;
                     cursor:pointer;
                     border-bottom:2px solid $darker-orange;
                 }

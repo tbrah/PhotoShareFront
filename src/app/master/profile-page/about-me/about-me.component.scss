@@ -11,6 +11,13 @@
     flex-direction: column;
     justify-content: center;
     margin-bottom:50px;
+    transition:all 0.2s ease-in;
+
+    &:hover{
+        cursor:pointer;
+        transform:translateY(-1px);
+        box-shadow:$hover-shadow;
+    }
 
     h2{
         color:$darker-orange;
