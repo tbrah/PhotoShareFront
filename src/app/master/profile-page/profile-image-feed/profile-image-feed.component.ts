@@ -13,4 +13,10 @@ export class ProfileImageFeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  scale = 0;
+
+  testing(){
+    this.scale = 1;
+  }
+
 }

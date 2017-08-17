@@ -28,6 +28,15 @@
 
         .left-side{
             display:flex;
+            transition:all 0.2s ease-in;
+
+            &:hover{
+                transform:translateY(-1px);
+            }
+
+            &:hover h5{
+                color:$orange;
+            }
 
             .profile-img{
                 height:40px;
@@ -35,6 +44,7 @@
                 border-radius:50%;
                 background-size:101%;
                 background-position:center;
+                box-shadow:$standard-shadow;
             }
 
             h5{
@@ -42,6 +52,7 @@
                 color:$darker-orange;
                 margin-left:10px;
                 margin-bottom:0;
+
             }
         }
 

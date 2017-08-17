@@ -74,13 +74,13 @@
                 display:inline-block;
                 margin-left:15px;
                 color:$darker-orange;
-                border-bottom:1px solid transparent;
+                border-bottom:2px solid transparent;
                 transition:all 0.2s ease-in;
 
                 &:hover{
                     color:$orange;
                     cursor:pointer;
-                    border-bottom:2px solid $darker-orange;
+                    border-bottom:2px solid lighten($orange, 5%);
                 }
 
                 &:first-child{
