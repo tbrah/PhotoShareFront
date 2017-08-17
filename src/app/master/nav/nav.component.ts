@@ -14,6 +14,12 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  test(){
+
+      this.router.navigate(['/profile/' + this.loginService.user.username]);
+
+  }
+
   signout(){
     this.router.navigate(["/login"]);
     // Reset these values so if user logs out and in credientails are wiped.

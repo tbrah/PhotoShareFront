@@ -8,6 +8,7 @@
     border-radius:5px;
     box-shadow:$standard-shadow;
     display:flex;
+    margin-bottom:50px;
 
     .profile-img-circle{
         position:absolute;
@@ -146,7 +147,10 @@
             }
 
             .title{
+                display:block;
                 font-weight:300;
+                width:60%;
+                margin:0 auto;
             }
         }
     }

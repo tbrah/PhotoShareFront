@@ -1,0 +1,26 @@
+@import '~vars.scss';
+
+.about-me-wrapper{
+    width:100%;
+    min-height:200px;
+    background-color:#fff;
+    box-shadow:$standard-shadow;
+    border-radius:5px;
+    padding:40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom:50px;
+
+    h2{
+        color:$darker-orange;
+        font-size:16px;
+        margin-bottom:20px;
+        margin-top:0;
+    }
+    
+    p{
+        color:$light-gray;
+        margin-bottom:0;
+    }
+}

@@ -21,6 +21,9 @@ import { MasterComponent } from './master/master.component';
 import { NavComponent } from './master/nav/nav.component';
 import { FirstLoginComponent } from './master/first-login/first-login.component';
 import { ProfilePageComponent } from './master/profile-page/profile-page.component';
+import { AboutMeComponent } from './master/profile-page/about-me/about-me.component';
+import { ProfileImageFeedComponent } from './master/profile-page/profile-image-feed/profile-image-feed.component';
+import { ProfileReferenceComponent } from './master/profile-page/profile-reference/profile-reference.component';
 
 
 const appRoutes: Routes = [
@@ -58,6 +61,9 @@ const appRoutes: Routes = [
     NavComponent,
     FirstLoginComponent,
     ProfilePageComponent,
+    AboutMeComponent,
+    ProfileImageFeedComponent,
+    ProfileReferenceComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,100 @@
+@import "~vars.scss";
+
+.profile-reference-wrapper{
+    position:relative;
+    width:100%;
+    min-height:180px;
+    background-color:#fff;
+    border-radius:5px;
+    box-shadow:$standard-shadow;
+    padding:40px;
+    padding-left:60px;
+    padding-top:30px;
+    padding-right:20px;
+    transition:all 0.2s ease-in;
+
+    &:hover{
+        transform:translateY(-1px);
+        box-shadow:$hover-shadow;
+        cursor:pointer;
+    }
+
+    .profile-img-wrapper{
+        position:absolute;
+        left:-40px;
+        top:25px;
+        height:80px;
+        width:80px;
+        background-color:#fff;
+        border-radius:50%;
+        box-shadow:$standard-shadow;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        .profile-img{
+            height:55px;
+            width:55px;
+            border-radius:50%;
+            background-image:url("/assets/img/girlselfie.jpg");
+            background-size:101%;
+            background-position:center;
+
+        }
+    }
+
+    .reference-label{
+        position:absolute;
+        right:20px;
+        top:-5px;
+        font-size:11px;
+        color:$gray-font;
+
+    }
+
+    .profile-info{
+        height:70px;
+        display:flex;
+        justify-content: space-between;
+        align-items:center;
+        margin-bottom:10px;
+
+        .title-wrapper{
+            
+            h3{
+                font-size:17px;
+                color:$darker-orange;
+                margin-top:0;
+                margin-bottom:0;
+            }
+            
+            .location{
+                font-size:11px;
+                color:$light-gray;
+                margin-bottom:0;
+                margin-top:3px;
+                margin-left:0;
+            }
+        }
+
+        .stars-wrapper{
+            float:right;
+            color:$light-gray;
+            font-size:20px;
+        }
+    }
+
+    .fa-quote-left{
+        float:left;
+        color:$light-gray;
+        font-size:24px!important;
+    }
+
+    p{
+        padding-left:25px;
+        margin-left:5px;
+        margin-top:20px;
+        color:$light-gray;
+        margin-bottom:0;
+    }
+}
