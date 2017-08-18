@@ -56,7 +56,6 @@ export class PasswordResetComponent implements OnInit {
           this.http.post('http://photoshare.dev:8000/api/forgot-password-check', JSON.stringify(postData), {
               headers: headers
           }).subscribe(data => {
-            console.log(data);
             this.router.navigate(['/login']);
             this.loading = false;
           }, err => console.log(err));

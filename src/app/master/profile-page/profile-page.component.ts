@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../login.service';
+import { AuthService } from '../../auth.service';
+import { Observable } from 'rxjs/Rx';
+import { User } from '../../user';
+import { Http, Headers, Response } from '@angular/http';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'profile-page',
@@ -8,9 +13,57 @@ import { LoginService } from '../../login.service';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor(private loginService:LoginService) { }
+  user:any;
+  profileVisited:string;
+
+  constructor(
+    private loginService:LoginService, 
+    private http:Http, 
+    private router:Router, 
+    private activatedRoute:ActivatedRoute,
+    private authService:AuthService,
+  ) {}
 
   ngOnInit() {
+
+    this.getParam();
+    this.profileSubscribe();
+
+    // Everytime the parameter changes it re-runs these methods.
+    this.router.events.subscribe(change => {
+      this.getParam();
+      this.profileSubscribe();
+    });
+    
+  }
+
+  // Subscribes to the profile data.
+  profileSubscribe(){
+    this.getProfileData().subscribe(data => {
+        this.user = data[0];
+    });
+  }
+
+  // Gets the parameter in the url
+  getParam(){
+    this.activatedRoute.params.subscribe(
+      params => {
+        this.profileVisited = params.username;
+      }
+    );
+  }
+
+  // Gets the profile data from the backend.
+  getProfileData(): Observable<User[]> {
+    var headers = new Headers({
+      "Accept": "application/json",
+      "Authorization": "Bearer " + this.authService.accessToken,
+    });
+
+    return this.http.get("http://photoshare.dev:8000/api/user/username/" + this.profileVisited, {
+        headers:headers
+    }).map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
 }
