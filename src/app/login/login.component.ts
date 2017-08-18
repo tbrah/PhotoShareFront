@@ -51,13 +51,13 @@ export class LoginComponent implements OnInit {
                 data => {
                     sessionStorage.setItem("user", JSON.stringify(data[0]));
                     this.loginService.user = JSON.parse(sessionStorage.getItem("user"));
-                    this.loginService.firstLogin = this.loginService.user.info.first_login;
-
-                    this.router.navigate(['/profile/' + this.loginService.user.username]);
+                    this.loginService.firstLogin = this.loginService.user.info.first_login
+                    if(this.loginService.user.info.first_login == 1){
+                        this.router.navigate(['/']);
+                    } else {
+                      this.router.navigate(['/profile/' + this.loginService.user.username]);
+                    }
                 });
-            
-
-
             }, 
             err => {
                 this.errorShow = true;

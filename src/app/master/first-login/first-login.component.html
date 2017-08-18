@@ -1,6 +1,3 @@
-<p>
-  first-login works!
-</p>
 <div class="popup-background"></div>
 <div class="details-box">
   <img class="small-logo" src="./assets/img/logo-no-text.svg">
@@ -13,7 +10,7 @@
   <form [formGroup]="detailsForm" (ngSubmit)="saveDetails(detailsForm.value)" enctype="multipart/form-data">
 
     <input type="file" id="uploadFile" name="uploadFile" class="avatar-btn" (change)="fileChange($event)">
-    <label for="uploadFile"><span *ngIf="!loadingImage">Upload Avatar</span><span *ngIf="loadingImage"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></span></label>
+    <label for="uploadFile"><span >Upload Avatar</span></label>
 
     <label for="first_name" class="light-label">first name:</label>
     <input type="text" id="first_name" name="first_name" class="orange-border" formControlName="first_name">
@@ -24,7 +21,7 @@
     <label for="country" class="light-label">country:</label>
     <input type="text" id="country" name="country" class="orange-border" formControlName="country">
 
-    <button class="submit" type="submit"><span>Next</span></button>
+    <button class="submit" type="submit"><span *ngIf="!loadingImage">Next</span><span *ngIf="loadingImage"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></span></button>
 
   </form>
   

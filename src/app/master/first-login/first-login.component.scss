@@ -98,9 +98,6 @@
                     background:$button-gradient-hover;
                 }
 
-                i{
-                    font-size:20px;
-                }
             }
 
             .light-label{
@@ -137,6 +134,10 @@
 
                 &:hover{
                     background:$button-gradient-hover;
+                }
+                
+                i{
+                    font-size:20px;
                 }
             }
         }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../../auth.service';
 import { LoginService } from '../../login.service';
@@ -24,7 +25,7 @@ export class FirstLoginComponent implements OnInit {
   loadingImage:boolean = false; // Triggers loading icon while image loads.
   imageViewerUrl:string = "./assets/img/no_avatar.png"; // the image will be stored here temporarily.
 
-  constructor(private fb: FormBuilder, private http:Http, private authService:AuthService, private loginService:LoginService) { 
+  constructor(private fb: FormBuilder, private http:Http, private authService:AuthService, private loginService:LoginService, private router:Router) { 
 
     this.detailsForm = fb.group({
       'first_name': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(30)])],
@@ -39,10 +40,11 @@ export class FirstLoginComponent implements OnInit {
 
     fileChange(event) {
 
-        this.loadingImage = true;
         let fileList: FileList = event.target.files;
         if(fileList.length > 0) {
+
             this.file = fileList[0];
+            this.imageViewerUrl = window.URL.createObjectURL(this.file);
 
             let formData:FormData = new FormData();
             formData.append('uploadFile', this.file, this.file.name);
@@ -51,24 +53,12 @@ export class FirstLoginComponent implements OnInit {
             headers.append("Authorization", "Bearer " + this.authService.accessToken);
 
             let options = new RequestOptions({ headers: headers });
-
-            this.http.post("http://photoshare.dev:8000/api/tempStoreImg", formData, options)
-                .map(res => res.json())
-                .catch(error => Observable.throw(error))
-                .subscribe(
-                    data => {
-                        this.imageViewerUrl = data.url;
-                        this.loadingImage = false;
-                    },
-                    error => {
-                        console.log(error);
-                        this.loadingImage = false;
-                    }
-                )
         }
     }
 
   saveDetails(post){
+
+    this.loadingImage = true;
     this.inputData = post;
 
     let info = 
@@ -78,8 +68,6 @@ export class FirstLoginComponent implements OnInit {
         user_id: this.loginService.user.id,
         //about: post.about
     };
-
-    console.log(info);
 
     let formData:FormData = new FormData();
     formData.append('uploadFile', this.file, this.file.name);
@@ -99,7 +87,8 @@ export class FirstLoginComponent implements OnInit {
             // Reload the new data the user has sent.
                 .subscribe(data => {
                     this.loginService.user = data[0];
-                    this.loginService.user = JSON.parse(sessionStorage.getItem("user"));
+                    sessionStorage.setItem("user", JSON.stringify(data[0]));
+                    this.router.navigate(['/profile/' + this.loginService.user.username]);
                 }),
             error => console.log(error)
         )
