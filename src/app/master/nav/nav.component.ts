@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../login.service';
+import { PopupService } from '../../popup.service';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,15 +10,13 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Activ
 })
 export class NavComponent implements OnInit {
 
-  constructor(private loginService:LoginService, private router:Router) {}
+  constructor(private loginService:LoginService, private router:Router, private popupService:PopupService) {}
 
   ngOnInit() {
   }
 
   test(){
-
       this.router.navigate(['/profile/' + this.loginService.user.username]);
-
   }
 
   signout(){
@@ -27,6 +26,10 @@ export class NavComponent implements OnInit {
     this.loginService.username = "";
     this.loginService.password = "";
     sessionStorage.removeItem("user");
+  }
+
+  activateUploadPopup(){
+    this.popupService.uploadPopupState = true;
   }
 
 }

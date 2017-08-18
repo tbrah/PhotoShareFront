@@ -1,0 +1,30 @@
+<div class="background-dark" *ngIf="popupService.uploadPopupState">
+
+  <div class="add-post-popup">
+    <div class="close-btn" (click)="popupService.uploadPopupState = false; resetChanges()"><i class="fa fa-times"></i></div>
+
+    <div class="post-header">
+      <div class="profile-image" 
+      [ngStyle]="{'background-image': 'url(' + loginService.user.info.avatar + ')'}">
+      </div>
+      <h5>{{loginService.user.info.first_name}} {{loginService.user.info.last_name}}</h5>
+    </div>
+
+    <div class="image-area">
+      <img class="front" [src]="sanitizer.bypassSecurityTrustResourceUrl(imageViewerUrl)" *ngIf="imageViewerUrl">
+      <div class="upload-image" *ngIf="!imageViewerUrl">
+        <div class="upload-btn"><i class="fa fa-plus"></i></div>
+        <p><i>click or drag an image here</i></p>
+        <input type="file" id="uploadFile" name="uploadFile" class="avatar-btn" (change)="fileChange($event)">
+      </div>
+    </div>
+
+    <div class="description-area">
+      <textarea rows="4" placeholder="description to post goes here.."></textarea>
+    </div>
+
+    <button>Post</button>
+
+  </div>
+
+</div>

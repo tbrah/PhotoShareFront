@@ -21,7 +21,7 @@
     <div class="profile-drpdwn">
       <div class="avatar" *ngIf="loginService.user?.info?.avatar" [ngStyle]="{'background-image':'url(' + loginService.user?.info?.avatar + ')'}"></div>
       <p>{{loginService.user?.username}} <i class="fa fa-angle-down"></i></p>
-      <button><i class="fa fa-plus-square-o"></i> <span>New Photo</span></button>
+      <button (click)="popupService.uploadPopupState = true"><i class="fa fa-plus-square-o"></i> <span>New Photo</span></button>
       <div class="signout" (click)="signout()"><i class="fa fa-sign-out"></i></div>
     </div>
 

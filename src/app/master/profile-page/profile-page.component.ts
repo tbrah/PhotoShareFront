@@ -27,7 +27,6 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
 
     this.getParam();
-    this.profileSubscribe();
 
     // Everytime the parameter changes it re-runs these methods.
     this.router.events.subscribe(change => {
@@ -35,6 +34,7 @@ export class ProfilePageComponent implements OnInit {
       this.profileSubscribe();
     });
     
+    this.profileSubscribe();
   }
 
   // Subscribes to the profile data.

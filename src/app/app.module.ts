@@ -15,6 +15,8 @@ import { LoginService } from './login.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { RegisterService } from './register.service';
+import { PopupService } from './popup.service';
+
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { MasterComponent } from './master/master.component';
@@ -24,6 +26,7 @@ import { ProfilePageComponent } from './master/profile-page/profile-page.compone
 import { AboutMeComponent } from './master/profile-page/about-me/about-me.component';
 import { ProfileImageFeedComponent } from './master/profile-page/profile-image-feed/profile-image-feed.component';
 import { ProfileReferenceComponent } from './master/profile-page/profile-reference/profile-reference.component';
+import { AddPostComponent } from './master/add-post/add-post.component';
 
 
 const appRoutes: Routes = [
@@ -64,6 +67,7 @@ const appRoutes: Routes = [
     AboutMeComponent,
     ProfileImageFeedComponent,
     ProfileReferenceComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +83,7 @@ const appRoutes: Routes = [
     AuthGuardService,
     AuthService,
     RegisterService,
+    PopupService,
   ],
   bootstrap: [AppComponent]
 })
