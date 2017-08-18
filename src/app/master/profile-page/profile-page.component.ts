@@ -4,7 +4,7 @@ import { AuthService } from '../../auth.service';
 import { Observable } from 'rxjs/Rx';
 import { User } from '../../user';
 import { Http, Headers, Response } from '@angular/http';
-import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'profile-page',
@@ -22,19 +22,23 @@ export class ProfilePageComponent implements OnInit {
     private router:Router, 
     private activatedRoute:ActivatedRoute,
     private authService:AuthService,
-  ) {}
-
-  ngOnInit() {
-
-    this.getParam();
+  ) {
 
     // Everytime the parameter changes it re-runs these methods.
-    this.router.events.subscribe(change => {
-      this.getParam();
-      this.profileSubscribe();
+    router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd) {
+        this.getParam();
+        this.profileSubscribe();
+      }
+      // NavigationStart
+      // NavigationCancel
+      // NavigationError
+      // RoutesRecognized
     });
-    
-    this.profileSubscribe();
+
+  }
+
+  ngOnInit() {
   }
 
   // Subscribes to the profile data.

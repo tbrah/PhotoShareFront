@@ -10,7 +10,7 @@
       <h5>{{loginService.user.info.first_name}} {{loginService.user.info.last_name}}</h5>
     </div>
 
-    <div class="image-area">
+    <div class="image-area" [ngClass]="!imageViewerUrl ? 'image-area-height' : 'image-area'">
       <img class="front" [src]="sanitizer.bypassSecurityTrustResourceUrl(imageViewerUrl)" *ngIf="imageViewerUrl">
       <div class="upload-image" *ngIf="!imageViewerUrl">
         <div class="upload-btn"><i class="fa fa-plus"></i></div>

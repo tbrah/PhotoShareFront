@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PopupService } from '../../popup.service';
 import { LoginService } from '../../login.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FadeInAnimation, FadeInAnimationFast } from '../../_animations';
+
 
 @Component({
   selector: 'add-post',
   templateUrl: './add-post.component.html',
-  styleUrls: ['./add-post.component.scss']
+  styleUrls: ['./add-post.component.scss'],
 })
 export class AddPostComponent implements OnInit {
 
@@ -24,7 +26,6 @@ export class AddPostComponent implements OnInit {
 
           this.file = fileList[0];
           this.imageViewerUrl = window.URL.createObjectURL(this.file);
-          console.log(this.imageViewerUrl);
       }
   }
 
