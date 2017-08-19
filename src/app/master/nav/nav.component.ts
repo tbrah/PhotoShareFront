@@ -16,7 +16,12 @@ export class NavComponent implements OnInit {
   }
 
   test(){
-      this.router.navigate(['/profile/' + this.loginService.user.username]);
+      this.router.navigate(['/profile/JohnDoe']);
+  }
+
+  testTwo()
+  {
+      this.router.navigate(['/profile/ggg']);    
   }
 
   signout(){

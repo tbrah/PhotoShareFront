@@ -14,6 +14,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Activ
 export class ProfilePageComponent implements OnInit {
 
   user:any;
+  posts:any;
   profileVisited:string;
 
   constructor(

@@ -5,6 +5,6 @@ export class PopupService {
 
   constructor() { }
 
-  uploadPopupState = true;
+  uploadPopupState = false;
 
 }

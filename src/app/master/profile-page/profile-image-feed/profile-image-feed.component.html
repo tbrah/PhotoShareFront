@@ -1,24 +1,23 @@
-<div class="image-post">
-
+<div class="image-post" *ngFor="let post of posts">
+{{profileVisited}}
   <div class="post-header">
     <div class="left-side">
 
       <div class="profile-img" 
-      *ngIf="loginService.user?.info?.avatar" 
-      [ngStyle]="{'background-image': 'url(' + loginService.user.info.avatar + ')'}">
+      *ngIf="_user" [ngStyle]="{'background-image':'url(' + _user?.info?.avatar + ')'}">
       </div>
 
-      <h5>{{loginService.user?.info?.first_name}} {{loginService.user?.info?.last_name}}</h5>
+      <h5>{{_user?.info?.first_name}} {{_user?.info?.last_name}}</h5>
 
     </div>
 
     <div class="right-side">
-      <p>12 / 01 / 2017</p>
+      <p>{{post.created_at}}</p>
     </div>
   </div>
   <!--post header end-->
 
-  <img class="main-image" src="/assets/img/showcase3.jpg">
+  <img class="main-image" src="{{post.picture_url}}">
 
   <div class="stat-bar">
     
@@ -34,7 +33,7 @@
   <!--stat-bar end-->
 
   <div class="description">
-    <p>Proin faucibus hendrerit mollis. Nulla nunc nulla, pretium in risus nec, egestas commodo erat. Fusce condimentum ut.</p>
+    <p>{{post.description}}</p>
   </div>
 
   <p class="more-comments">show more comments <i class="fa fa-angle-down"></i></p>
