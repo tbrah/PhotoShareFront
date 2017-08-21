@@ -14,8 +14,8 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Activ
 export class ProfilePageComponent implements OnInit {
 
   user:any;
-  posts:any;
   profileVisited:string;
+  posts:any;
 
   constructor(
     private loginService:LoginService, 
@@ -46,6 +46,7 @@ export class ProfilePageComponent implements OnInit {
   profileSubscribe(){
     this.getProfileData().subscribe(data => {
         this.user = data[0];
+        this.posts = data[0].posts;
     });
   }
 

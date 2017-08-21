@@ -4,6 +4,7 @@ export class User {
 		public name: string,
 		public email: string,
 		public info: Info,
+		public posts: Posts,
 		public created_at: Date,
 		public updated_at: Date,)
 		{}
@@ -21,5 +22,16 @@ export class Info {
 		public country:string,
 		public created_at: Date,
 		public updated_at: Date,
+	){}
+}
+
+export class Posts {
+	constructor(
+		public id:number,
+		public description:string,
+		public likes:any,
+		public picture_url:string,
+		public updated_at: Date,
+		public created_at: Date,
 	){}
 }

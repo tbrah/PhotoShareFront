@@ -40,33 +40,33 @@ export class AddPostComponent implements OnInit {
     this.description = "";
   }
 
-    sendPost(){
+  sendPost(){
 
-    this.loading = true;
+  this.loading = true;
 
-    let info = 
-      { user_id: this.loginService.user.id,
-        description: this.description
-    };
+  let info = 
+    { user_id: this.loginService.user.id,
+      description: this.description
+  };
 
-    let formData:FormData = new FormData();
-    formData.append('uploadFile', this.file, this.file.name);
-    formData.append('info', JSON.stringify(info));
+  let formData:FormData = new FormData();
+  formData.append('uploadFile', this.file, this.file.name);
+  formData.append('info', JSON.stringify(info));
 
-    var headers = new Headers({
-        "Accept": "application/json",
-        "Authorization": "Bearer " + this.authService.accessToken,
-    });
+  var headers = new Headers({
+      "Accept": "application/json",
+      "Authorization": "Bearer " + this.authService.accessToken,
+  });
 
-    let options = new RequestOptions({ headers: headers });
-    this.http.post("http://photoshare.dev:8000/api/post", formData, options)
-        .map(res => res.json())
-        .catch(error => Observable.throw(error))
-        .subscribe(data => {
-                    this.loading = false;
-                    this.popupService.uploadPopupState = false;
-                    this.resetChanges();
-                  },error => console.log(error)
-        )
+  let options = new RequestOptions({ headers: headers });
+  this.http.post("http://photoshare.dev:8000/api/post", formData, options)
+      .map(res => res.json())
+      .catch(error => Observable.throw(error))
+      .subscribe(data => {
+                  this.loading = false;
+                  this.popupService.uploadPopupState = false;
+                  this.resetChanges();
+                },error => console.log(error)
+      )
   }
 }
