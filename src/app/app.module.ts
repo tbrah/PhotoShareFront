@@ -16,6 +16,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { RegisterService } from './register.service';
 import { PopupService } from './popup.service';
+import { ProfileService } from './profile.service';
 
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
@@ -84,6 +85,7 @@ const appRoutes: Routes = [
     AuthService,
     RegisterService,
     PopupService,
+    ProfileService,
   ],
   bootstrap: [AppComponent]
 })

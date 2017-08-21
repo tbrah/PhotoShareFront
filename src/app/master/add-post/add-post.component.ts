@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { PopupService } from '../../popup.service';
 import { LoginService } from '../../login.service';
+import { ProfileService } from '../../profile.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from '../../auth.service';
 import { Observable } from 'rxjs/Rx';
@@ -15,7 +16,12 @@ import { FadeInAnimation, FadeInAnimationFast } from '../../_animations';
 })
 export class AddPostComponent implements OnInit {
 
-  constructor(private popupService:PopupService, private loginService:LoginService, public sanitizer: DomSanitizer, private http:Http, private authService:AuthService) { }
+  constructor(private popupService:PopupService, 
+  private loginService:LoginService, 
+  public sanitizer: DomSanitizer, 
+  private http:Http, 
+  private authService:AuthService,
+  private profileService:ProfileService) { }
 
   ngOnInit() {
   }
@@ -65,6 +71,7 @@ export class AddPostComponent implements OnInit {
       .subscribe(data => {
                   this.loading = false;
                   this.popupService.uploadPopupState = false;
+                  this.profileService.profileSubscribe();
                   this.resetChanges();
                 },error => console.log(error)
       )

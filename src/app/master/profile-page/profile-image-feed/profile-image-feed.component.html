@@ -1,13 +1,13 @@
-<div class="image-post" *ngFor="let post of _posts">
-{{profileVisited}}
+<div class="image-post" *ngFor="let post of profileService.posts">
+
   <div class="post-header">
     <div class="left-side">
 
       <div class="profile-img" 
-      *ngIf="_user" [ngStyle]="{'background-image':'url(' + _user?.info?.avatar + ')'}">
+      *ngIf="profileService.user" [ngStyle]="{'background-image':'url(' + profileService.user?.info?.avatar + ')'}">
       </div>
 
-      <h5>{{_user?.info?.first_name}} {{_user?.info?.last_name}}</h5>
+      <h5>{{profileService.user?.info?.first_name}} {{profileService.user?.info?.last_name}}</h5>
 
     </div>
 

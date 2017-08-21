@@ -3,15 +3,15 @@
   <div class="profile-label">
 
     <div class="profile-img-circle">
-      <div class="profile-img" *ngIf="user" [ngStyle]="{'background-image':'url(' + user?.info?.avatar + ')'}"></div>
+      <div class="profile-img" *ngIf="profileService.user" [ngStyle]="{'background-image':'url(' + profileService.user?.info?.avatar + ')'}"></div>
     </div>
 
     <div class="info-box-wrapper">
 
       <div class="info-box">
 
-        <h1>{{user?.info.first_name}} {{user?.info.last_name}}</h1>
-        <p class="country-p">{{user?.info.country}}</p>
+        <h1>{{profileService.user?.info.first_name}} {{profileService.user?.info.last_name}}</h1>
+        <p class="country-p">{{profileService.user?.info.country}}</p>
 
         <p class="photography-type">Landscape Photographer</p>
 
@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-md-6 right-side">
-      <profile-image-feed [user]="user" [profileVisited]="profileVisited" [posts]="posts"></profile-image-feed>   
+      <profile-image-feed></profile-image-feed>   
     </div>
         
   </div>
