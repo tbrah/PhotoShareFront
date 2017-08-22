@@ -28,6 +28,7 @@ import { AboutMeComponent } from './master/profile-page/about-me/about-me.compon
 import { ProfileImageFeedComponent } from './master/profile-page/profile-image-feed/profile-image-feed.component';
 import { ProfileReferenceComponent } from './master/profile-page/profile-reference/profile-reference.component';
 import { AddPostComponent } from './master/add-post/add-post.component';
+import { ReversePipe } from './reverse.pipe';
 
 
 const appRoutes: Routes = [
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
     ProfileImageFeedComponent,
     ProfileReferenceComponent,
     AddPostComponent,
+    ReversePipe,
   ],
   imports: [
     BrowserModule,
