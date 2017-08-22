@@ -14,10 +14,17 @@
     transition:all 0.2s ease-in;
     margin-bottom:50px;
 
+    .profile-img{
+        height:40px;
+        width:40px;
+        border-radius:50%;
+        background-size:101%;
+        background-position:center;
+        box-shadow:$standard-shadow;
+    }
+
 
     &:hover{
-        cursor:pointer;
-        transform:translateY(-1px);
         box-shadow:$hover-shadow;
     }
 
@@ -37,15 +44,6 @@
 
             &:hover h5{
                 color:$orange;
-            }
-
-            .profile-img{
-                height:40px;
-                width:40px;
-                border-radius:50%;
-                background-size:101%;
-                background-position:center;
-                box-shadow:$standard-shadow;
             }
 
             h5{
@@ -155,11 +153,109 @@
         margin-bottom:0;
         color:$darker-orange;
         transition:all 0.2s ease-in;
+        padding-left:2px;
 
         &:hover{
             color:$orange;
             transform:translateY(-1px);
             cursor:pointer;
+        }
+    }
+
+    .comment-list{
+        list-style: none;
+        padding:0;
+        margin:0;
+        margin-top:5px;
+
+        li{
+            display:flex;
+            align-items:center;
+            margin-bottom:5px;
+            margin-top:5px;
+            padding:10px;
+            border: 1px solid $blue-background;
+            border-radius:5px;
+            box-shadow:$standard-shadow;
+            transition:all 0.2s ease-in;
+
+            &:hover{
+                transform: translateY(-1px);
+            }
+
+            .title-date-wrapper{
+                min-width:90px;
+                border-right:1px solid $blue-background;
+                padding-right:10px;
+
+                h5{
+                    color:$darker-orange;
+                    margin-left:10px;
+                    margin-top:0;
+                    margin-bottom:3px;
+
+                }
+
+                .date{
+                    font-size:11px;
+                    margin-left:10px;
+                }
+            }
+
+            p{
+                margin-left:10px;
+                margin-bottom:0;
+                color:$light-gray;
+
+                span{
+                    font-size:20px;
+                }
+            }
+        }
+    }
+
+    .comment-wrapper{
+
+        width:100%;
+        height:38px;
+        margin-top:10px;
+        padding-left:3px;
+        border-radius:3px;
+        border:1px solid $blue-background;
+
+
+        form{
+            display:flex;
+            width:100%;
+            height:100%;
+            justify-content: space-between;
+
+            .comment{
+                padding:9px 13px;
+                border:none;
+                width:100%;
+            }
+
+            i{
+                transition:all 0.2s ease-in;
+            }
+        }
+        .send-btn{
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            margin:0;
+            color:$light-gray;
+            background-color:$blue-background;
+            font-weight:500;
+            height:100%;
+            width:40px;
+            border: 1px solid $blue-background;
+
+            &:hover{
+                color:$orange;
+                background-color:lighten($blue-background, 0.6%);
+            }
         }
     }
 }

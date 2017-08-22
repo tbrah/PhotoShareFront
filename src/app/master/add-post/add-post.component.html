@@ -14,8 +14,8 @@
       <img class="front" [src]="sanitizer.bypassSecurityTrustResourceUrl(imageViewerUrl)" *ngIf="imageViewerUrl">
       <div class="upload-image" *ngIf="!imageViewerUrl">
         <div class="upload-btn"><i class="fa fa-plus"></i></div>
-        <p><i>click or drag an image here</i></p>
         <input type="file" id="uploadFile" name="uploadFile" class="avatar-btn" (change)="fileChange($event)">
+        <label for="uploadFile">Upload Image</label>
       </div>
     </div>
 
