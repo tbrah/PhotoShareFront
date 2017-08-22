@@ -1,4 +1,4 @@
-<div class="image-post" *ngFor="let post of profileService.posts | reverse">
+<div class="image-post" *ngFor="let post of profileService.posts | reverse let i = index">
 
   <div class="post-header">
     <div class="left-side">
@@ -36,8 +36,12 @@
     <p>{{post.description}}</p>
   </div>
 
-  <p class="more-comments" (click)="showComments(post.id)">show comments <i class="fa fa-angle-down"></i></p>
-  <ul class="comment-list">
+  <p class="more-comments" (click)="showComments(i)">
+    <span *ngIf="!showCommentsArray.includes(i)">show comments <i class="fa fa-angle-down"></i></span>
+    <span *ngIf="showCommentsArray.includes(i)">hide comments <i class="fa fa-angle-up"></i></span>
+  </p>
+
+  <ul class="comment-list" *ngIf="showCommentsArray.includes(i)">
     <li *ngFor="let comment of post.comments">
       <div class="profile-img-wrapper">
       <div class="profile-img" [ngStyle]="{'background-image':'url(' + comment.user.info.avatar + ')'}"></div>

@@ -34,9 +34,27 @@ export class ProfileImageFeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  showCommentsSwitch:number;
+  showCommentsArray = [];
+
+  /**
+   * Allows user to show and hide comments on
+   * different posts at the same time.
+   * @param i Index of the post
+   */
+  showComments(i){
+    let index = this.showCommentsArray.length;
+
+    if(this.showCommentsArray.includes(i)){
+      let removeIndex = this.showCommentsArray.indexOf(i);
+      this.showCommentsArray.splice(removeIndex, 1);
+    } else {
+      this.showCommentsArray.push(i);
+    }
+  }
+
 
   sendComment(formValue, post){
-
     let data = {
       post_id: post.id,
       user_id: this.loginService.user.id, 
