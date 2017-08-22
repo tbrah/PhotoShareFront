@@ -18,8 +18,8 @@ export class ProfileService {
   // Subscribes to the profile data.
   profileSubscribe(){
     this.getProfileData().subscribe(data => {
-        this.user = data[0];
-        this.posts = data[0].posts;
+        this.user = data[0][0];
+        this.posts = data[0][0].posts;
     });
   }
 
@@ -30,7 +30,7 @@ export class ProfileService {
       "Authorization": "Bearer " + this.authService.accessToken,
     });
 
-    return this.http.get("http://photoshare.dev:8000/api/user/username/" + this.profileVisited, {
+    return this.http.get("http://photoshare.dev:8000/api/posts/" + this.profileVisited, {
         headers:headers
     }).map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));

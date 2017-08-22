@@ -15,6 +15,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Activ
 export class ProfilePageComponent implements OnInit {
 
   profileVisited:string;
+  routeCheck;
 
   constructor(
     private loginService:LoginService, 
@@ -25,8 +26,9 @@ export class ProfilePageComponent implements OnInit {
     private profileService:ProfileService,
   ) {
 
+
     // Everytime the parameter changes it re-runs these methods.
-    router.events.subscribe((event) => {
+    this.routeCheck = router.events.subscribe((event) => {
       if(event instanceof NavigationEnd) {
         this.getParam();
         this.profileService.profileSubscribe();
@@ -42,6 +44,11 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Needed to prevent memory leak.
+  ngOnDestroy() {
+    this.routeCheck.unsubscribe();
+  }
+
   // Gets the parameter in the url
   getParam(){
     this.activatedRoute.params.subscribe(
@@ -51,5 +58,7 @@ export class ProfilePageComponent implements OnInit {
       }
     );
   }
+
+  
 
 }

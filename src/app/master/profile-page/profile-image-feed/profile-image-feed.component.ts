@@ -44,10 +44,8 @@ export class ProfileImageFeedComponent implements OnInit {
     }
 
     this.commentService.postCommentData(data);
+    this.commentForm.reset();
   }
 
-  showComments(postId){
-    this.commentService.getCommentSubscribe(postId);
-  }
 
 }

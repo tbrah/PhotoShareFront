@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { ProfileService } from './profile.service'; 
 import { LoginService } from './login.service';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs/Rx';
@@ -9,7 +10,8 @@ export class CommentService {
 
   constructor(private http:Http,
     private authService:AuthService,
-    private loginService:LoginService) { }
+    private loginService:LoginService,
+    private profileService:ProfileService) { }
 
     comments:any;
 
@@ -19,22 +21,14 @@ export class CommentService {
       "Authorization": "Bearer " + this.authService.accessToken,
     });
 
-  getCommentSubscribe(postId){
-    this.getCommentData(postId).subscribe(data => {
-      this.comments = data.comments;
-      console.log(this.comments);
-    });
-  }
-
   /**
    * Posting the comment information to the server.
    */
   postCommentData(commentData) {
 
-    console.log(JSON.stringify(commentData));
     this.http.post("http://photoshare.dev:8000/api/post/" + commentData.post_id + "/postComment", commentData,{
       headers:this.headers
-      }).subscribe(data => console.log(data),error => console.log(error));
+      }).subscribe(data => this.profileService.profileSubscribe(),error => console.log(error));
 
   }
 

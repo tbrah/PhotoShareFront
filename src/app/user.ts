@@ -31,7 +31,20 @@ export class Posts {
 		public description:string,
 		public likes:any,
 		public picture_url:string,
+		public comments:any,
 		public updated_at: Date,
 		public created_at: Date,
+	){}
+}
+
+export class Comments {
+	constructor(
+		public id:number,
+		public user_id:number,
+		public post_id:number,
+		public content:string,
+		public created_at: Date,
+		public updated_at: Date,
+		public user: User,
 	){}
 }
