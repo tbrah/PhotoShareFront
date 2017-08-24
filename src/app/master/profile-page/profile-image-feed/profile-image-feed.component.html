@@ -44,6 +44,9 @@
 
   <ul class="comment-list" *ngIf="showCommentsArray.includes(i)">
     <li *ngFor="let comment of post.comments">
+
+      <div class="delete-comment" *ngIf="deletableComment(comment.user.id, post)"><i class="fa fa-trash-o"></i></div>
+
       <div class="profile-img-wrapper">
       <div class="profile-img" [ngStyle]="{'background-image':'url(' + comment.user.info.avatar + ')'}"></div>
       </div>

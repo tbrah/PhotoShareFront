@@ -173,6 +173,7 @@
         margin-top:5px;
 
         li{
+            position:relative;
             display:flex;
             align-items:center;
             margin-bottom:5px;
@@ -185,6 +186,19 @@
 
             &:hover{
                 transform: translateY(-1px);
+            }
+
+            .delete-comment{
+                position:absolute;
+                right:5px;
+                top:2px;
+                cursor:pointer;
+                opacity:0.4;
+
+                &:hover{
+                    opacity:1;
+                    color:$error;
+                }
             }
 
             .title-date-wrapper{

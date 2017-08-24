@@ -20,21 +20,22 @@ export class LikeService {
     "Authorization": "Bearer " + this.authService.accessToken,
   });
 
+  /**
+   * Likes or unlikes the post clicked on.
+   * The backend detects whether or not user
+   * has already liked post or not.
+   * @param {number} postId 
+   */
   postLike(postId) {
 
     let data = {
       user_id : this.loginService.user.id
     }
 
-    console.log(data);
-
     this.http.post("http://photoshare.dev:8000/api/post/" + postId + "/like", data,{
       headers:this.headers
       }).subscribe(data => this.profileService.profileSubscribe(),error => console.log(error));
 
   }
-
-  check:boolean = true;
-
 
 }
