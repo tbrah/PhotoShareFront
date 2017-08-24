@@ -22,11 +22,12 @@
   <div class="stat-bar">
     
     <div class="likes-wrapper">
-      <i class="fa fa-heart-o"></i><p>11</p>
+      <i class="fa fa-heart" (click)="likeService.liked(post)" *ngIf="checkLike(post)"></i>
+      <i class="fa fa-heart-o" (click)="likePost(post.id)" *ngIf="!checkLike(post)"></i><p>{{post.likes.length}}</p>
     </div>
 
     <div class="comments-wrapper">
-      <i class="fa fa-commenting-o"></i><p>4</p>
+      <i class="fa fa-commenting-o"></i><p>{{post.comments.length}}</p>
     </div>
 
   </div>
@@ -36,7 +37,7 @@
     <p>{{post.description}}</p>
   </div>
 
-  <p class="more-comments" (click)="showComments(i)">
+  <p class="more-comments" (click)="showComments(i)" *ngIf="post.comments.length > 0">
     <span *ngIf="!showCommentsArray.includes(i)">show comments <i class="fa fa-angle-down"></i></span>
     <span *ngIf="showCommentsArray.includes(i)">hide comments <i class="fa fa-angle-up"></i></span>
   </p>

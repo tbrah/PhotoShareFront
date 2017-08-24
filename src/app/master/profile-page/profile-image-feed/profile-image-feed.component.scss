@@ -104,8 +104,11 @@
                 color:$orange;
             }
 
-            .fa-heart-o{
+            .fa{
                 margin-right:5px;
+            }
+            .fa-heart{
+                color:$peach;
             }
         }
 
@@ -154,6 +157,7 @@
         color:$darker-orange;
         transition:all 0.2s ease-in;
         padding-left:2px;
+        user-select: none;
 
         &:hover{
             color:$orange;
