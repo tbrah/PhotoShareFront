@@ -22,7 +22,7 @@
   <div class="stat-bar">
     
     <div class="likes-wrapper">
-      <i class="fa fa-heart" (click)="likeService.liked(post)" *ngIf="checkLike(post)"></i>
+      <i class="fa fa-heart" (click)="likePost(post.id)" *ngIf="checkLike(post)"></i>
       <i class="fa fa-heart-o" (click)="likePost(post.id)" *ngIf="!checkLike(post)"></i><p>{{post.likes.length}}</p>
     </div>
 

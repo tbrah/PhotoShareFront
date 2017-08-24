@@ -36,26 +36,5 @@ export class LikeService {
 
   check:boolean = true;
 
-  liked(post){
-    console.log(post);
-    /*let loggedUser = this.loginService.user.id;
-    let liked:boolean;
-
-    let checkArray = [];
-
-    post.likes.forEach(like => {
-      if(like.user_id == loggedUser){
-        checkArray.push(like);
-      }
-    });
-
-    if(checkArray.length > 0){
-      this.check = true;
-      console.log("true");
-    } else {
-      this.check = false;
-      console.log("false");      
-    }*/
-  }
 
 }
