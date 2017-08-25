@@ -193,7 +193,7 @@ export class ProfileImageFeedComponent implements OnInit {
     this.nextPost = this.focusPost;
 
     // Looops through the posts and makes sure to stop at each end of the array.
-    for (var index = 0; index < this.profileService.posts.length; index++) {
+    for (var index = 0; index < postArray.length; index++) {
       var focusElement = postArray[index];
       if(focusElement.id == post.id){
         if(direction == "left" && index !== 0){
