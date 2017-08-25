@@ -31,6 +31,7 @@ import { ProfileImageFeedComponent } from './master/profile-page/profile-image-f
 import { ProfileReferenceComponent } from './master/profile-page/profile-reference/profile-reference.component';
 import { AddPostComponent } from './master/add-post/add-post.component';
 import { ReversePipe } from './reverse.pipe';
+import { StopPropagationDirective } from './stop-propagation.directive';
 
 
 const appRoutes: Routes = [
@@ -73,6 +74,7 @@ const appRoutes: Routes = [
     ProfileReferenceComponent,
     AddPostComponent,
     ReversePipe,
+    StopPropagationDirective,
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@
   </div>
   <!--post header end-->
 
-  <img class="main-image" src="{{post.picture_url}}">
+  <img class="main-image" src="{{post.picture_url}}" (click)="imageFocus(post)">
 
   <div class="stat-bar">
     
@@ -65,10 +65,24 @@
     </li>
   </ul>
 
-  <div class="comment-wrapper">
-    <form [formGroup]="commentForm" (ngSubmit)="sendComment(commentForm.value, post)">
-      <input class="comment" type="text" formControlName="comment" name="comment">
-      <button class="send-btn" type="submit"><i class="fa fa-paper-plane" [ngStyle]="commentForm.valid ? {'color': '#F99060'} : {'color' : '#95989A'}"></i></button>
-    </form>
-  </div>
+    <div class="comment-wrapper">
+      <form [formGroup]="commentForm" (ngSubmit)="sendComment(commentForm.value, post)">
+        <input class="comment" type="text" formControlName="comment" name="comment">
+        <button class="send-btn" type="submit"><i class="fa fa-paper-plane" [ngStyle]="commentForm.valid ? {'color': '#F99060'} : {'color' : '#95989A'}"></i></button>
+      </form>
+    </div>
+
 </div>
+
+  <div class="post-focus-dim" 
+  *ngIf="showFocusImage" 
+  (click)="imageFocus(post)"
+  >
+
+    <div class="post-focus">
+      <i class="fa fa-angle-left" (click)="nextImage(focusPost, 'left')" StopPropagation></i>    
+      <img src="{{focusPost.picture_url}}" StopPropagation>
+      <i class="fa fa-angle-right" (click)="nextImage(focusPost, 'right')" StopPropagation></i>
+    </div>
+  </div>
+

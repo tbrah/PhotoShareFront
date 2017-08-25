@@ -8,6 +8,7 @@ import { LikeService } from '../../../like.service';
 import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StopPropagationDirective } from '../../../stop-propagation.directive';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 
 @Component({
@@ -162,5 +163,49 @@ export class ProfileImageFeedComponent implements OnInit {
     }
   }
 
+  // +++++++++++++++++++ IMAGE FOCUS +++++++++++++++++++ //
+
+  showFocusImage:boolean = false;
+  focusPost:any = [];
+  profileServicePosts:any = [];
+  nextPost:any = [];
+
+  imageFocus(post){
+    if(this.showFocusImage == false){
+      this.focusPost = post;
+      this.profileServicePosts = this.profileService.posts;
+      this.showFocusImage = true;
+    } else {
+      this.showFocusImage = false;
+    }
+  }
+
+  /**
+   * Finds the next image to be shown using 
+   * the navigation arrows.
+   * @param {object} post 
+   * @param {string} direction "left" "right"
+   */
+  nextImage(post, direction){
+    let postArray = this.profileServicePosts;
+    let arrayLength = postArray.length;
+    // If user reaches end of the array, show current picture.
+    this.nextPost = this.focusPost;
+
+    // Looops through the posts and makes sure to stop at each end of the array.
+    for (var index = 0; index < this.profileService.posts.length; index++) {
+      var focusElement = postArray[index];
+      if(focusElement.id == post.id){
+        if(direction == "left" && index !== 0){
+          this.nextPost = postArray[index - 1];
+          break
+        } else if(direction == "right" && arrayLength-1 !== index){
+          this.nextPost = postArray[index + 1];
+          break
+        }
+      }
+    }
+    this.focusPost = this.nextPost;
+  }
 
 }
