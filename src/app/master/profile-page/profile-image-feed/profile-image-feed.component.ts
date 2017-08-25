@@ -38,6 +38,7 @@ export class ProfileImageFeedComponent implements OnInit {
 
   showCommentsSwitch:number;
   showCommentsArray = [];
+  showPopOver:number;
 
   /**
    * Allows user to show and hide comments on
@@ -62,12 +63,41 @@ export class ProfileImageFeedComponent implements OnInit {
    * @param {number} commentId 
    * @param {object} post 
    */
-  deletableComment(commentId, post){
+  deletableComment(commentId, postId){
     let loggedUser = this.loginService.user.id;
-    if(commentId == loggedUser || post.user_id == loggedUser){
+    if(commentId == loggedUser || postId == loggedUser){
       return true;
     } else {
       return false;
+    }
+  }
+
+  /**
+   * Resets the popover & dimmed background.
+   */
+  resetShowPopover(){
+    this.showPopOver = null;
+  }
+
+  /**
+   * Toggles the showpopover for given comment.
+   * @param {number} commentId 
+   */
+  areYouSure(commentId){
+    this.showPopOver = commentId;
+  }
+
+  /**
+   * Activates the deleteComment in commentService.
+   * @param {number} commentId 
+   * @param {number} postId 
+   */
+  deleteComment(commentId, postId, deleteBool){
+    if(deleteBool == true){
+      this.commentService.deleteComment(commentId, postId);
+      this.resetShowPopover();
+    } else {
+      this.resetShowPopover();
     }
   }
 

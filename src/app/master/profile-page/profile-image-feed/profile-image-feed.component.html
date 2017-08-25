@@ -1,3 +1,4 @@
+<div class="dim-background" *ngIf="showPopOver" (click)="resetShowPopover()"></div>
 <div class="image-post" *ngFor="let post of profileService.posts | reverse let i = index">
 
   <div class="post-header">
@@ -45,7 +46,13 @@
   <ul class="comment-list" *ngIf="showCommentsArray.includes(i)">
     <li *ngFor="let comment of post.comments">
 
-      <div class="delete-comment" *ngIf="deletableComment(comment.user.id, post)"><i class="fa fa-trash-o"></i></div>
+      <div class="popover-delete" *ngIf="showPopOver == comment.id">
+        <p>Are you sure you <br>want to delete this?</p>
+        <button class="yes-btn" (click)="deleteComment(comment.id, post.id, true)">Yes</button>
+        <button class="no-btn" (click)="deleteComment(comment.id, post.id, false)">No</button> 
+        <div class="arrow"></div>
+      </div>
+      <div class="delete-comment" *ngIf="deletableComment(comment.user.id, post.user_id)" (click)="areYouSure(comment.id)"><i class="fa fa-trash-o"></i></div>
 
       <div class="profile-img-wrapper">
       <div class="profile-img" [ngStyle]="{'background-image':'url(' + comment.user.info.avatar + ')'}"></div>

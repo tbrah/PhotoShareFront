@@ -1,5 +1,13 @@
 @import "~vars.scss";
-
+.dim-background{
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:200;
+    background-color:rgba(0,0,0,0.20);
+}
 .image-post{
     position:relative;
     width:100%;
@@ -184,8 +192,58 @@
             box-shadow:$standard-shadow;
             transition:all 0.2s ease-in;
 
-            &:hover{
-                transform: translateY(-1px);
+            .popover-delete{
+                position:absolute;
+                right:-66px;
+                top:-92px;
+                min-width:100px;
+                min-height:50px;
+                border-radius:5px;
+                background:#fff;
+                box-shadow:$standard-shadow;
+                padding:9px 13px;
+                text-align:center;
+                z-index:300;
+
+                p{
+                    font-size:12px;
+                    margin-bottom:10px;
+                }
+
+                button{
+                    border:none;
+                    border-radius:3px;
+                    color:#fff;
+                    padding-left:10px;
+                    padding-right:10px;
+                    transition:all 0.2s ease-in;
+                }
+                .yes-btn{
+                    background-color:$peach;
+                    &:hover{
+                        background-color:lighten($peach, 5%);
+                    }
+                }
+
+                .no-btn{
+                    background-color:$success;
+                    &:hover{
+                        background-color:lighten($success, 5%);
+                    }
+                }
+
+                .arrow{
+                    position:absolute;
+                    left:0;
+                    right:0;
+                    bottom:-5px;
+                    box-shadow:$standard-shadow;
+                    margin:0 auto;
+                    width:10px;
+                    height:10px;
+                    background:#fff;
+                    transform: rotate(45deg);
+                }
             }
 
             .delete-comment{
@@ -196,7 +254,7 @@
                 opacity:0.4;
 
                 &:hover{
-                    opacity:1;
+                    opacity:0.8;
                     color:$error;
                 }
             }

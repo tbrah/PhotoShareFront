@@ -22,7 +22,8 @@ export class CommentService {
     });
 
   /**
-   * Posting the comment information to the server.
+   * Posting the comment to the backend.
+   * @param {object} commentData 
    */
   postCommentData(commentData) {
 
@@ -34,7 +35,7 @@ export class CommentService {
 
   /**
    * Grab the comments for the givin post.
-   * @param postId 
+   * @param {number} postId 
    */
   getCommentData(postId){
 
@@ -44,4 +45,12 @@ export class CommentService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  deleteComment(commentId, postId){
+    let data = {
+      user_id: this.loginService.user.id
+    }
+    this.http.post("http://photoshare.dev:8000/api/post/" + postId + "/deleteComment/" + commentId + "", data,{
+    headers:this.headers
+    }).subscribe(data => this.profileService.profileSubscribe(),error => console.log(error));
+  }
 }
