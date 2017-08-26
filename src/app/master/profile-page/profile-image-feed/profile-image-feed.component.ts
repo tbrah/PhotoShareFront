@@ -208,4 +208,8 @@ export class ProfileImageFeedComponent implements OnInit {
     this.focusPost = this.nextPost;
   }
 
+  onKey(e){
+    console.log(e.keyCode);
+  }
+
 }

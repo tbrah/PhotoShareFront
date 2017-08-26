@@ -79,7 +79,11 @@
   (click)="imageFocus(post)"
   >
 
-    <div class="post-focus">
+    <div class="post-focus" 
+    (window:keydown.arrowleft)="nextImage(focusPost, 'left')"
+    (window:keydown.arrowright)="nextImage(focusPost, 'right')"
+    (window:keydown.esc)="imageFocus(post)"
+    >
       <i class="fa fa-angle-left" (click)="nextImage(focusPost, 'left')" StopPropagation></i>    
       <img src="{{focusPost.picture_url}}" StopPropagation>
       <i class="fa fa-angle-right" (click)="nextImage(focusPost, 'right')" StopPropagation></i>
