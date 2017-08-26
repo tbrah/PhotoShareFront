@@ -4,11 +4,10 @@
   <div class="post-header">
     <div class="left-side">
 
-      <div class="profile-img" 
-      *ngIf="profileService.user" [ngStyle]="{'background-image':'url(' + profileService.user?.info?.avatar + ')'}">
+      <div class="profile-img" [ngStyle]="{'background-image':'url(' + post.user.info.avatar + ')'}">
       </div>
 
-      <h5>{{profileService.user?.info?.first_name}} {{profileService.user?.info?.last_name}}</h5>
+      <h5>{{post.user.info.first_name}} {{post.user.info.last_name}}</h5>
 
     </div>
 

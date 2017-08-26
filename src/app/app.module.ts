@@ -32,6 +32,7 @@ import { ProfileReferenceComponent } from './master/profile-page/profile-referen
 import { AddPostComponent } from './master/add-post/add-post.component';
 import { ReversePipe } from './reverse.pipe';
 import { StopPropagationDirective } from './stop-propagation.directive';
+import { DiscoverComponent } from './master/discover/discover.component';
 
 
 const appRoutes: Routes = [
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
   // Master paths start
   { path: '', component: MasterComponent, canActivate: [AuthGuardService], children: [
     { path: 'profile/:username', component: ProfilePageComponent},
+    { path: 'discover', component: DiscoverComponent},
   ]},
   // Master paths end
   
@@ -75,6 +77,7 @@ const appRoutes: Routes = [
     AddPostComponent,
     ReversePipe,
     StopPropagationDirective,
+    DiscoverComponent,
   ],
   imports: [
     BrowserModule,
