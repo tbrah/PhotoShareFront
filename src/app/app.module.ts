@@ -19,6 +19,7 @@ import { PopupService } from './popup.service';
 import { ProfileService } from './profile.service';
 import { CommentService } from './comment.service';
 import { LikeService } from './like.service';
+import { DiscoverService } from './discover.service';
 
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
     ProfileService,
     CommentService,
     LikeService,
+    DiscoverService,
   ],
   bootstrap: [AppComponent]
 })

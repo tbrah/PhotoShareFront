@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-md-6 right-side">
-      <profile-image-feed *ngIf="profileService.posts"></profile-image-feed>   
+      <profile-image-feed *ngIf="profileService.posts" [posts]="profileService.posts"></profile-image-feed>   
     </div>
         
   </div>

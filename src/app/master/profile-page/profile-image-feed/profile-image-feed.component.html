@@ -1,5 +1,5 @@
 <div class="dim-background" *ngIf="showPopOver" (click)="resetShowPopover()"></div>
-<div class="image-post" *ngFor="let post of profileService.posts | reverse let i = index">
+<div class="image-post" *ngFor="let post of _posts | reverse let i = index">
 
   <div class="post-header">
     <div class="left-side">

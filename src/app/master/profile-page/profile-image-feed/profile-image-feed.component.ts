@@ -32,6 +32,16 @@ export class ProfileImageFeedComponent implements OnInit {
     this.commentForm = fb.group({
       'comment': [null, Validators.compose([Validators.required, Validators.minLength(1)])],
     });
+
+    /**
+     * This tells what component the post
+     *  was interacted with from.
+     */
+    if(this.router.url.includes("/profile")){
+      this.updateComponent = "profile";
+    } else if(this.router.url.includes("/discover")) {
+      this.updateComponent = "discover";
+    }
   }
 
   ngOnInit() {
@@ -40,6 +50,13 @@ export class ProfileImageFeedComponent implements OnInit {
   showCommentsSwitch:number;
   showCommentsArray = [];
   showPopOver:number;
+  // Used to update the posts on the correct component.
+  updateComponent:string;
+
+  private _posts:any;
+  @Input() set posts(value:any){
+    this._posts = value;
+  }
 
   /**
    * Allows user to show and hide comments on
@@ -95,7 +112,7 @@ export class ProfileImageFeedComponent implements OnInit {
    */
   deleteComment(commentId, postId, deleteBool){
     if(deleteBool == true){
-      this.commentService.deleteComment(commentId, postId);
+      this.commentService.deleteComment(commentId, postId, this.updateComponent);
       this.resetShowPopover();
     } else {
       this.resetShowPopover();
@@ -114,7 +131,7 @@ export class ProfileImageFeedComponent implements OnInit {
       comment: formValue.comment
     }
 
-    this.commentService.postCommentData(data);
+    this.commentService.postCommentData(data, this.updateComponent);
     this.commentForm.reset();
   }
 
@@ -122,10 +139,16 @@ export class ProfileImageFeedComponent implements OnInit {
    * Run the postLike method in the likeService.
    * postLike makes a post request.
    * Handles liking and unliking posts.
+   * Figure out where the request is comming from
+   * and send it in as a param.
    * @param {number} postId 
    */
   likePost(postId){
-    this.likeService.postLike(postId);
+    if(this.router.url.includes("/profile")){
+      this.likeService.postLike(postId, this.updateComponent);
+    } else if(this.router.url.includes("/discover")) {
+      this.likeService.postLike(postId, this.updateComponent);
+    }
   }
 
   /**
