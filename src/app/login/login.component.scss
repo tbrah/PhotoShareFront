@@ -7,30 +7,15 @@
     top:0;
     height:100%;
     width:100%;
-    background-color:#34495e;
-    background-image:url("/assets/img/login-background.jpg");
-    background-size:cover;
-    filter:contrast(130%) brightness(70%) blur(3px);
-    transform:scale(1.02);
-    overflow:hidden;
-}
-.login-background-blur{
-    position:fixed;
-    z-index:0;
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    background:linear-gradient(141deg, #3A1C71 0%, #D76D77 51%, #f99060 75%);
+    background-color:$blue-background;
     background-size:cover;
     overflow:hidden;
-    opacity:0.6;
 }
         .login-box{
         position:absolute;
         display:flex;
         flex-direction: row;
-        background-color:rgba(44, 49, 68, 0.91);
+        background-color:#fff;
         z-index:100;
         top:0;
         left:0;
@@ -49,20 +34,21 @@
             justify-content: center;
             height:100%;
             width:245px;
-            background-color:rgba(92, 92, 107, 0.33);
+            background-color:#fff;
+            border-right:1px solid rgba(149, 152, 154, 0.25);
 
             img{
                 display:block;
                 width:100px;
                 height:100px;
                 background-size:cover;
-                opacity:0.6;
                 margin-left:auto;
                 margin-right:auto;
             }
             h2{
-                color:#fff;
+                color:$gray-font;
                 text-align:center;
+                font-weight:300;
             }
         }
 
@@ -73,11 +59,12 @@
             padding-bottom:40px;
             padding-left:35px;
             padding-right:35px;
+            color:$light-gray;
 
             h1{
                 font-size:20px;
                 font-weight:500;
-                color:#fff;
+                color:$gray-font;
                 margin-top:0;
                 text-align:center;
             }
@@ -94,46 +81,45 @@
                 input:-webkit-autofill:active {
                     transition: background-color 5000s ease-in-out 0s;
                     transition-delay: 99999s;
-                    -webkit-text-fill-color: white!important;
+                    -webkit-text-fill-color: $light-gray!important;
                 }
                 label{
                     font-weight:normal;
                     font-size:10px;
                     font-weight:300;
-                    color:#fff;
                     margin-bottom:7px;
                 }
                 .bordered{
                     width:350px;
                     background:none;
                     border:none;
-                    border-bottom:1px solid rgba(255, 255, 255, 0.2);
+                    border-bottom:1px solid rgba(149, 152, 154, 0.46);
                     margin-bottom:10px;
-                    color:#fff;
+                    color:$light-gray;
                     outline:none;
                     padding-top:5px;
                     padding-bottom:5px;
                     transition:all 0.2s ease-in;
 
                     &:focus{
-                        border-bottom:1px solid rgba(255, 255, 255, 0.8);
+                        border-bottom:1px solid $light-gray;
                     }
                 }
                 a{
                     font-size:10px;
-                    opacity:0.4;
-                    color:#CECECE;
+                    opacity:0.6;
                     display:block;
                     transition:all 0.2s ease-in;
                     text-decoration: none;
+                    color:$gray-font;
 
                     &:hover{
-                        opacity:0.8;
+                        opacity:1;
                     }
                 }
                 .forgot-password{
-                    margin-bottom:30px;
-                    margin-top:15px;
+                    margin-bottom:20px;
+                    margin-top:18px;
                 }
                 .submit{
                     width:350px;
@@ -159,7 +145,7 @@
                     margin-top:15px;
 
                     span{
-                        color:#fff;
+                        color:$gray-font;
                     }
                 }
             }
