@@ -28,4 +28,6 @@ export class DiscoverComponent implements OnInit {
   ngOnInit() {
   }
 
+  testing ="hello";
+
 }

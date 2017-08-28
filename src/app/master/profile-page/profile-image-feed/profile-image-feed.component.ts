@@ -60,6 +60,21 @@ export class ProfileImageFeedComponent implements OnInit {
     this._posts = value;
   }
 
+  private _size:string;
+  @Input() set size(value:string){
+    this._size = value;
+  }
+
+  private _columnNumber:number;
+  @Input() set columnNumber(value:number){
+    this._columnNumber = value;
+  }
+
+  private _increaseI:number;
+  @Input() set increaseI(value:number){
+    this._increaseI = value;
+  }
+
   /**
    * Allows user to show and hide comments on
    * different posts at the same time.

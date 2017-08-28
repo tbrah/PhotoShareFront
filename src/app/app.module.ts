@@ -34,6 +34,7 @@ import { AddPostComponent } from './master/add-post/add-post.component';
 import { ReversePipe } from './reverse.pipe';
 import { StopPropagationDirective } from './stop-propagation.directive';
 import { DiscoverComponent } from './master/discover/discover.component';
+import { ColumnPipe } from './column.pipe';
 
 
 const appRoutes: Routes = [
@@ -79,6 +80,7 @@ const appRoutes: Routes = [
     ReversePipe,
     StopPropagationDirective,
     DiscoverComponent,
+    ColumnPipe,
   ],
   imports: [
     BrowserModule,
