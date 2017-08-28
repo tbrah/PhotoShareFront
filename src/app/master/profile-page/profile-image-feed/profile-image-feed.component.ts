@@ -4,6 +4,7 @@ import { LoginService } from '../../../login.service';
 import { AuthService } from '../../../auth.service';
 import { ProfileService } from '../../../profile.service';
 import { CommentService } from '../../../comment.service';
+import { DiscoverService } from '../../../discover.service';
 import { LikeService } from '../../../like.service';
 import { Observable } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
@@ -27,7 +28,8 @@ export class ProfileImageFeedComponent implements OnInit {
   private fb:FormBuilder,
   private profileService:ProfileService,
   private commentService:CommentService,
-  private likeService:LikeService)
+  private likeService:LikeService,
+  private discoverService:DiscoverService,)
   {
     this.commentForm = fb.group({
       'comment': [null, Validators.compose([Validators.required, Validators.minLength(1)])],
@@ -210,7 +212,12 @@ export class ProfileImageFeedComponent implements OnInit {
    * @param {string} direction "left" "right"
    */
   nextImage(post, direction){
-    let postArray = this.profileServicePosts;
+    let postArray:any;
+    if(this.router.url.includes("/profile")){
+      postArray = this.profileServicePosts;
+    } else if(this.router.url.includes("/discover")) {
+      postArray = this.discoverService.posts;
+    }
     let arrayLength = postArray.length;
     // If user reaches end of the array, show current picture.
     this.nextPost = this.focusPost;
@@ -219,10 +226,10 @@ export class ProfileImageFeedComponent implements OnInit {
     for (var index = 0; index < postArray.length; index++) {
       var focusElement = postArray[index];
       if(focusElement.id == post.id){
-        if(direction == "left" && index !== 0){
+        if(direction == "right" && index !== 0){
           this.nextPost = postArray[index - 1];
           break
-        } else if(direction == "right" && arrayLength-1 !== index){
+        } else if(direction == "left" && arrayLength-1 !== index){
           this.nextPost = postArray[index + 1];
           break
         }
