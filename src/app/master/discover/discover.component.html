@@ -1,34 +1,40 @@
 <div class="container">
-    <div class="row">
+    <div class="row multipleCols">
         <div class="col-lg-4">
-
             <profile-image-feed *ngIf="discoverService.posts" 
             [posts]="discoverService.posts" 
             [size]="'col-md-12'"
             [columnNumber]="0"
             [increaseI]="3">
             </profile-image-feed>
-
         </div>
         <div class="col-lg-4">
-
             <profile-image-feed *ngIf="discoverService.posts" 
             [posts]="discoverService.posts" 
             [size]="'col-md-12'"
             [columnNumber]="1"
             [increaseI]="3">
             </profile-image-feed>
-
         </div>
         <div class="col-lg-4">
-
             <profile-image-feed *ngIf="discoverService.posts" 
             [posts]="discoverService.posts" 
             [size]="'col-md-12'"
             [columnNumber]="2"
             [increaseI]="3">
             </profile-image-feed>
+        </div>
+    </div>
 
+    <!-- Single column screen width -->
+    <div class="row singleCol">
+        <div class="col-lg-4">
+            <profile-image-feed *ngIf="discoverService.posts" 
+            [posts]="discoverService.posts" 
+            [size]="'col-md-12'"
+            [columnNumber]="0"
+            [increaseI]="1">
+            </profile-image-feed>
         </div>
     </div>
 </div>

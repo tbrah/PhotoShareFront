@@ -1,0 +1,11 @@
+.multipleCols{
+    @media only screen and (max-width: 991px){
+        display:none;
+    }
+}
+.singleCol{
+    display:none;
+    @media only screen and (max-width:991px){
+        display:block;
+    }
+}
