@@ -3,10 +3,12 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { PopupService } from '../../popup.service';
 import { LoginService } from '../../login.service';
 import { ProfileService } from '../../profile.service';
+import { DiscoverService} from '../../discover.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AuthService } from '../../auth.service';
 import { Observable } from 'rxjs/Rx';
 import { FadeInAnimation, FadeInAnimationFast } from '../../_animations';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 
 
 @Component({
@@ -21,7 +23,9 @@ export class AddPostComponent implements OnInit {
   public sanitizer: DomSanitizer, 
   private http:Http, 
   private authService:AuthService,
-  private profileService:ProfileService) { }
+  private profileService:ProfileService,
+  private discoverService:DiscoverService,
+  private router:Router,) { }
 
   ngOnInit() {
   }
@@ -71,7 +75,11 @@ export class AddPostComponent implements OnInit {
       .subscribe(data => {
                   this.loading = false;
                   this.popupService.uploadPopupState = false;
-                  this.profileService.profileSubscribe();
+                  if(this.router.url.includes("/profile")){
+                    this.profileService.profileSubscribe();
+                  } else if(this.router.url.includes("/discover")) {
+                    this.discoverService.discoverSubscribe();
+                  }
                   this.resetChanges();
                 },error => console.log(error)
       )
