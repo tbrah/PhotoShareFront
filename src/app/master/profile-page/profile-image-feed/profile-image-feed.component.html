@@ -2,7 +2,8 @@
 <div class="{{_size}} image-post" *ngFor="let post of _posts | reverse |column: _columnNumber: _increaseI:updateComponent let i = index">
 
   <div class="post-header">
-    <div class="left-side">
+    <div class="left-side" (click)="router.navigate(['/profile/' + post.user.username + ''])">
+    
 
       <div class="profile-img" [ngStyle]="{'background-image':'url(' + post.user.info.avatar + ')'}">
       </div>

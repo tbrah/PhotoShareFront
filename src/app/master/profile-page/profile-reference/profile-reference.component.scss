@@ -16,7 +16,6 @@
     &:hover{
         transform:translateY(-1px);
         box-shadow:$hover-shadow;
-        cursor:pointer;
     }
 
     .profile-img-wrapper{
@@ -74,6 +73,7 @@
                 margin-bottom:0;
                 margin-top:3px;
                 margin-left:0;
+                padding-left:0;
             }
         }
 

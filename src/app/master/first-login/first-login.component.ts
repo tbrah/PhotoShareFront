@@ -83,7 +83,7 @@ export class FirstLoginComponent implements OnInit {
         .map(res => res.json())
         .catch(error => Observable.throw(error))
         .subscribe(
-            data => this.loginService.getLoggedUser()
+            data => this.loginService.getLoggedUser(this.loginService.user.email)
             // Reload the new data the user has sent.
                 .subscribe(data => {
                     this.loginService.user = data[0];

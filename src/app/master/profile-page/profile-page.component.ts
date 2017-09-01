@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../login.service';
 import { AuthService } from '../../auth.service';
 import { ProfileService } from '../../profile.service';
+import { FollowService } from '../../follow.service';
 import { Observable } from 'rxjs/Rx';
 import { User } from '../../user';
 import { Http, Headers, Response } from '@angular/http';
@@ -25,6 +26,7 @@ export class ProfilePageComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private authService:AuthService,
     private profileService:ProfileService,
+    private followService:FollowService,
   ) {
 
 
@@ -61,6 +63,24 @@ export class ProfilePageComponent implements OnInit {
     );
   }
 
-  
+  checkIfFollows(userId){
+
+    let userFollows = this.loginService.user.follows;
+
+    let check:boolean;
+    console.log(userId);
+    for (var index = 0; index < userFollows.length; index++) {
+      var element = userFollows[index];
+      if(element.id == userId){
+        check = true;
+        break
+      } else {
+        check = false;
+      }
+    }
+    
+    console.log("check = " + check);
+    return check;
+  }
 
 }

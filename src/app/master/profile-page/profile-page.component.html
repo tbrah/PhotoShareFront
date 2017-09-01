@@ -15,9 +15,9 @@
 
         <p class="photography-type">Landscape Photographer</p>
 
-        <ul>
-          <li>hire me!</li>
-          <li>follow</li>
+        <ul *ngIf="loginService.user.username !== profileVisited">
+          <li (click)="checkIfFollows(profileService.user.id)">hire me!</li>
+          <li (click)="followService.followUser(profileService.user.id)"><span *ngIf="checkIfFollows(profileService.user.id)">tt</span>follow</li>
           <li>send message</li>        
         </ul>
 

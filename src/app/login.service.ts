@@ -26,17 +26,23 @@ export class LoginService {
   // Link used for authentication
   private oauthUrl = "http://photoshare.dev:8000/oauth/token";
 
-  // Credentials binded in the login form.
-  username:string;
-  password:string;
-
   // Checks if its the first time user is logged in.
   firstLogin:boolean;
+
+  subscribeLoggedUser(email){
+
+      this.getLoggedUser(email).subscribe(data => 
+        {   
+            sessionStorage.setItem("user", JSON.stringify(data[0]));
+            this.user = JSON.parse(sessionStorage.getItem("user"));
+        },
+        error =>console.log(error))
+  }
 
   /**
    * Grabs the access token from the backend.
    */
-  getAccessToken() {
+  getAccessToken(username, password) {
         var headers = new Headers({
             "Content-Type": "application/json",
             "Accept": "application/json"
@@ -46,8 +52,8 @@ export class LoginService {
             grant_type: "password",
             client_id: 2,
             client_secret: this.authService.clientSecret,
-            username: this.username,
-            password: this.password,
+            username: username,
+            password: password,
             scope: ""
         }
 
@@ -66,13 +72,13 @@ export class LoginService {
      * Grabs the user information
      * for the user trying to login.
      */
-    getLoggedUser(): Observable<User[]>{
+    getLoggedUser(username): Observable<User[]>{
         var headers = new Headers({
             "Accept": "application/json",
             "Authorization": "Bearer " + this.authService.accessToken,
         });
 
-        return this.http.get("http://photoshare.dev:8000/api/user/" + this.username, {
+        return this.http.get("http://photoshare.dev:8000/api/user/" + username, {
             headers: headers
         })
             .map((res: Response) => res.json())

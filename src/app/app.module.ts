@@ -20,6 +20,7 @@ import { ProfileService } from './profile.service';
 import { CommentService } from './comment.service';
 import { LikeService } from './like.service';
 import { DiscoverService } from './discover.service';
+import { FollowService } from './follow.service';
 
 import { PasswordResetComponent } from './login/password-reset/password-reset.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
@@ -35,6 +36,7 @@ import { ReversePipe } from './reverse.pipe';
 import { StopPropagationDirective } from './stop-propagation.directive';
 import { DiscoverComponent } from './master/discover/discover.component';
 import { ColumnPipe } from './column.pipe';
+import { FollowersComponent } from './master/followers/followers.component';
 
 
 const appRoutes: Routes = [
@@ -56,6 +58,7 @@ const appRoutes: Routes = [
   { path: '', component: MasterComponent, canActivate: [AuthGuardService], children: [
     { path: 'profile/:username', component: ProfilePageComponent},
     { path: 'discover', component: DiscoverComponent},
+    { path: 'followers', component: FollowersComponent},
   ]},
   // Master paths end
   
@@ -81,6 +84,7 @@ const appRoutes: Routes = [
     StopPropagationDirective,
     DiscoverComponent,
     ColumnPipe,
+    FollowersComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +105,7 @@ const appRoutes: Routes = [
     CommentService,
     LikeService,
     DiscoverService,
+    FollowService,
   ],
   bootstrap: [AppComponent]
 })

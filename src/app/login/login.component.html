@@ -24,12 +24,12 @@
         <form>
         
             <label for="email">EMAIL</label>
-            <input class="bordered" type="text" [(ngModel)]="loginService.username" name="email" required>
+            <input class="bordered" type="text" [(ngModel)]="username" name="email" required>
             <label for="password">PASSWORD</label>
-            <input class="bordered form-group has-warning" type="password" [(ngModel)]="loginService.password" name="password" required>
+            <input class="bordered form-group has-warning" type="password" [(ngModel)]="password" name="password" required>
             <a class="forgot-password" routerLink="/login/forgotPassword">FORGOT YOUR PASSWORD?</a>
 
-            <button class="submit" type="submit" (click)="validateUser()"><span *ngIf="!loggingIn">Login</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loggingIn"></i></button>
+            <button class="submit" type="submit" (click)="validateUser(username, password)"><span *ngIf="!loggingIn">Login</span><i class="fa fa-spinner fa-pulse fa-3x fa-fw" [hidden]="!loggingIn"></i></button>
 
             <a class="sign-up" routerLink="/login/register">Need an account? <span>Register</span></a>
         

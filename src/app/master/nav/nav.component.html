@@ -7,8 +7,8 @@
 
     <ul>
       <li (click)="router.navigate(['/discover'])">Discover</li>
-      <li (click)=testTwo()>Followers</li>
-      <li (click)="test()">Profile</li>
+      <li (click)="router.navigate(['/followers'])">Followers</li>
+      <li (click)="router.navigate(['/profile/' + loginService.user.username + ''])">Profile</li>
       <li>Settings</li>
     </ul>
 

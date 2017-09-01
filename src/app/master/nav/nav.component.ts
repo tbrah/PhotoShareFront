@@ -28,8 +28,6 @@ export class NavComponent implements OnInit {
     this.router.navigate(["/login"]);
     // Reset these values so if user logs out and in credientails are wiped.
     this.loginService.user = [];
-    this.loginService.username = "";
-    this.loginService.password = "";
     sessionStorage.removeItem("user");
   }
 

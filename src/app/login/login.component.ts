@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  username:string;
+  password:string;
+
   loggingIn:boolean = false;
   errorShow:boolean = false;
   emailValidated;
@@ -37,16 +40,16 @@ export class LoginComponent implements OnInit {
      * Sets the accessToken recieved from the backend.
      * Sets login to true for routing permission.
      */
-    validateUser(){
+    validateUser(username, password){
         this.loggingIn = true;
         this.registerService.responseMessage = "";
-        this.loginService.getAccessToken()
+        this.loginService.getAccessToken(username, password)
         .subscribe(
             data => {
             this.authService.accessToken = data.access_token;
             this.authService.login();
             sessionStorage.setItem("token", this.authService.accessToken);
-            this.loginService.getLoggedUser()
+            this.loginService.getLoggedUser(username)
             .subscribe(
                 data => {
                     sessionStorage.setItem("user", JSON.stringify(data[0]));
