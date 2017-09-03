@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FollowService } from '../../follow.service';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-followers',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FollowersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private followService: FollowService, private router:Router) { }
 
   ngOnInit() {
-  }
+    this.followService.getFollowerList();
+    }
 
 }

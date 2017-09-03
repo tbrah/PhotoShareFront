@@ -68,7 +68,6 @@ export class ProfilePageComponent implements OnInit {
     let userFollows = this.loginService.user.follows;
 
     let check:boolean;
-    console.log(userId);
     for (var index = 0; index < userFollows.length; index++) {
       var element = userFollows[index];
       if(element.id == userId){
@@ -78,8 +77,6 @@ export class ProfilePageComponent implements OnInit {
         check = false;
       }
     }
-    
-    console.log("check = " + check);
     return check;
   }
 

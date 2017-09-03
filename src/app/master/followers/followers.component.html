@@ -1,6 +1,20 @@
 <div class="container">
   <div class="col-md-4">
-    
+    <ul>
+      <li *ngFor="let follow of followService.followerList">
+        <div class="label-wrapper" (click)="router.navigate(['/profile/' + follow.followerInfo.username + ''])">
+          <div class="profile-img-wrapper">
+            <div class="profile-img" [ngStyle]="{'background-image':'url(' + follow.followerInfo.info.avatar + ')'}"></div>
+          </div>
+        
+
+            <h5>{{follow.followerInfo.username}}</h5>
+            <p>Landscape Photographer</p>
+            
+          
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 

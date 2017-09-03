@@ -13,6 +13,8 @@ export class FollowService {
     private authService:AuthService,
     private profileService:ProfileService,) { }
 
+    followerList:any = [];
+
   // Header information for the api requests.
   headers = new Headers({
     "Accept": "application/json",
@@ -33,6 +35,20 @@ export class FollowService {
         this.loginService.subscribeLoggedUser(this.loginService.user.email);
       },error => console.log(error));
 
+  }
+
+  //
+  getFollowerList() {
+    var headers = new Headers({
+      "Accept": "application/json",
+      "Authorization": "Bearer " + this.authService.accessToken,
+    });
+
+    return this.http.get("http://photoshare.dev:8000/api/user/" + this.loginService.user.id + "/follows", {
+        headers:headers
+    }).subscribe(data => {
+      this.followerList = data.json().follows;
+    });
   }
 
 }

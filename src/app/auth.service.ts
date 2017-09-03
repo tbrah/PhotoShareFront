@@ -25,7 +25,7 @@ export class AuthService {
   redirectUrl:string;
 
   // Used to give permission to the backend.
-  clientSecret:string = "aXBVTBovs2CO9P8U4Mey1B12TXbBcVK2IJWRhmxT";
+  clientSecret:string = "DoVLEPIw4SgrhS6S9pHMvqIthH2RcI5MptdrtsEr";
 
   isLoggedIn = false;
 
