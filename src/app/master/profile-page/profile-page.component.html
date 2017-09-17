@@ -17,7 +17,7 @@
 
         <ul *ngIf="loginService.user.username !== profileVisited">
           <li (click)="checkIfFollows(profileService.user.id)">hire me!</li>
-          <li (click)="followService.followUser(profileService.user.id)"><span *ngIf="checkIfFollows(profileService.user.id)">unfollow</span><span *ngIf="!checkIfFollows(profileService.user.id)">follow</span></li>
+          <li (click)="followService.followUser(profileService.user.id)" *ngIf="profileService.user"><span *ngIf="checkIfFollows(profileService.user.id)">unfollow</span><span *ngIf="!checkIfFollows(profileService.user.id)">follow</span></li>
           <li>send message</li>        
         </ul>
 

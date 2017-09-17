@@ -14,6 +14,7 @@ export class FollowService {
     private profileService:ProfileService,) { }
 
     followerList:any = [];
+    searchFollower:string;
 
   // Header information for the api requests.
   headers = new Headers({

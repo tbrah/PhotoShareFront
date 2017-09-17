@@ -54,11 +54,11 @@
       </div>
       <div class="delete-comment" *ngIf="deletableComment(comment.user.id, post.user_id)" (click)="areYouSure(comment.id)"><i class="fa fa-trash-o"></i></div>
 
-      <div class="profile-img-wrapper">
+      <div class="profile-img-wrapper" (click)="router.navigate(['/profile/' + comment.user.username + ''])">
       <div class="profile-img" [ngStyle]="{'background-image':'url(' + comment.user.info.avatar + ')'}"></div>
       </div>
       <div class="title-date-wrapper">
-          <h5>{{comment.user.username}}</h5>
+          <h5 (click)="router.navigate(['/profile/' + comment.user.username + ''])">{{comment.user.username}}</h5>
           <p class="date">{{comment.created_at | date:yMd}}</p>
       </div>
       <p> {{comment.content}}</p>

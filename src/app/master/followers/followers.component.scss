@@ -1,5 +1,24 @@
 @import "~vars.scss";
 
+.orange-input-wrapper{
+    position:relative;
+    margin-bottom:20px;
+    padding-left:50px;
+    padding-right:50px;
+    
+    .orange-input{
+        margin-bottom:0;
+        margin-top:0;
+        position:relative;
+    }
+
+    .orange-input-button{
+        position:absolute;
+        right:57px;
+        bottom:5px;
+    }
+}
+
 ul{
     list-style: none;
     padding:0;

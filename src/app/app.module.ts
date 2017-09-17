@@ -37,6 +37,7 @@ import { StopPropagationDirective } from './stop-propagation.directive';
 import { DiscoverComponent } from './master/discover/discover.component';
 import { ColumnPipe } from './column.pipe';
 import { FollowersComponent } from './master/followers/followers.component';
+import { SearchFollowerPipe } from './search-follower.pipe';
 
 
 const appRoutes: Routes = [
@@ -85,6 +86,7 @@ const appRoutes: Routes = [
     DiscoverComponent,
     ColumnPipe,
     FollowersComponent,
+    SearchFollowerPipe,
   ],
   imports: [
     BrowserModule,

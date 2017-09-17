@@ -17,7 +17,6 @@ export class ProfilePageComponent implements OnInit {
 
   profileVisited:string;
   routeCheck;
-  testPosts:any;
 
   constructor(
     private loginService:LoginService, 
@@ -45,7 +44,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.testPosts = this.profileService.posts;
+
   }
 
   // Needed to prevent memory leak.

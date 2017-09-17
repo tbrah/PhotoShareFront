@@ -1,20 +1,28 @@
 <div class="container">
-  <div class="col-md-4">
-    <ul>
-      <li *ngFor="let follow of followService.followerList">
-        <div class="label-wrapper" (click)="router.navigate(['/profile/' + follow.followerInfo.username + ''])">
-          <div class="profile-img-wrapper">
-            <div class="profile-img" [ngStyle]="{'background-image':'url(' + follow.followerInfo.info.avatar + ')'}"></div>
-          </div>
-        
 
-            <h5>{{follow.followerInfo.username}}</h5>
-            <p>Landscape Photographer</p>
-            
+  <div class="orange-input-wrapper">
+    <input class="orange-input" type="text" placeholder="Search user" [(ngModel)]="followService.searchFollower"/>
+    <button class="orange-input-button">Search</button>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <ul>
+        <li *ngFor="let follow of followService.followerList | followerSearch:followService.searchFollower">
+          <div class="label-wrapper" (click)="router.navigate(['/profile/' + follow.followerInfo.username + ''])">
+            <div class="profile-img-wrapper">
+              <div class="profile-img" [ngStyle]="{'background-image':'url(' + follow.followerInfo.info.avatar + ')'}"></div>
+            </div>
           
-        </div>
-      </li>
-    </ul>
+              
+              <h5>{{follow.followerInfo.username}}</h5>
+              <p>Landscape Photographer</p>
+              
+            
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
